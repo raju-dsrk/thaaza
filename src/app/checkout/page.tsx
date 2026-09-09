@@ -67,7 +67,7 @@ export default function CheckoutPage() {
         name: l.product.name,
         qty: l.item.qty,
         unit: l.product.unit,
-        price: l.product.pricePerKg,
+        price: l.unitPrice,
         lineTotal: l.lineTotal,
       })),
       fulfilment,

@@ -43,7 +43,7 @@ export default function CartPage() {
       </h1>
       <div className="mt-6 grid gap-8 lg:grid-cols-5">
         <ul className="space-y-3 lg:col-span-3">
-          {lines.map(({ item, product, lineTotal }) => (
+          {lines.map(({ item, product, unitPrice, lineTotal }) => (
             <li
               key={product.id}
               className="flex gap-3 rounded-2xl border border-border bg-white p-3 shadow-sm"
@@ -65,7 +65,7 @@ export default function CartPage() {
                   {product.name}
                 </Link>
                 <p className="text-xs text-muted">
-                  {formatINR(product.pricePerKg)} / {product.unit}
+                  {formatINR(unitPrice)} / {product.unit}
                 </p>
                 <div className="mt-auto flex items-center justify-between gap-2 pt-2">
                   <div className="inline-flex h-9 items-center rounded-lg border border-border bg-cream">

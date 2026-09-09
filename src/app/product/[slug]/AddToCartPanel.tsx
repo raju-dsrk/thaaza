@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatINR, formatQty } from "@/lib/format";
 import { useCart } from "@/store/cart";
+import { useProductUnitPrice } from "@/components/PricesProvider";
 
 const WEIGHT_PRESETS = [
   { label: "1 kg", grams: 1000 },
@@ -23,6 +24,7 @@ export function AddToCartPanel({ product }: { product: Product }) {
   const [qty, setLocalQty] = useState(product.minQty);
   const addItem = useCart((s) => s.addItem);
   const inCart = useCart((s) => s.items.find((i) => i.productId === product.id));
+  const unitPrice = useProductUnitPrice(product);
 
   const selectedGrams =
     presetGrams === "custom" ? customGrams : presetGrams;
@@ -31,8 +33,8 @@ export function AddToCartPanel({ product }: { product: Product }) {
     [selectedGrams]
   );
   const pricePreview = useMemo(
-    () => weightPrice(product.pricePerKg, Math.round(selectedGrams)),
-    [product.pricePerKg, selectedGrams]
+    () => weightPrice(unitPrice, Math.round(selectedGrams)),
+    [unitPrice, selectedGrams]
   );
   const customOk = selectedGrams >= 100;
 
@@ -70,11 +72,11 @@ export function AddToCartPanel({ product }: { product: Product }) {
             className="flex h-12 flex-1 items-center justify-center rounded-xl bg-burgundy text-base font-semibold text-cream hover:bg-burgundy-dark active:scale-[0.99]"
           >
             {inCart ? "Update cart" : "Add to cart"} ·{" "}
-            {formatINR(product.pricePerKg * qty)}
+            {formatINR(Math.round(unitPrice * qty))}
           </button>
         </div>
         <p className="mt-2 text-xs text-muted">
-          {formatINR(product.pricePerKg)} /{" "}
+          {formatINR(unitPrice)} /{" "}
           {product.unit === "tray" ? "tray" : "pack"}
         </p>
       </div>
@@ -104,7 +106,7 @@ export function AddToCartPanel({ product }: { product: Product }) {
                   active ? "text-cream/90" : "text-muted"
                 }`}
               >
-                {formatINR(weightPrice(product.pricePerKg, p.grams))}
+                {formatINR(weightPrice(unitPrice, p.grams))}
               </span>
             </button>
           );
@@ -138,7 +140,7 @@ export function AddToCartPanel({ product }: { product: Product }) {
       )}
       <div className="mt-4 flex items-center justify-between text-sm">
         <span className="text-muted">
-          {formatQty(qtyKg, "kg")} · {formatINR(product.pricePerKg)}/kg
+          {formatQty(qtyKg, "kg")} · {formatINR(unitPrice)}/kg
         </span>
         <span className="text-lg font-bold tabular-nums text-burgundy">
           {formatINR(pricePreview)}

@@ -9,6 +9,8 @@ import {
   GST_RATE,
   getProduct,
 } from "@/lib/data";
+import { getUnitPrice, lineTotal as calcLineTotal } from "@/lib/prices";
+import { usePrices } from "@/components/PricesProvider";
 
 interface CartState {
   items: CartItem[];
@@ -98,17 +100,20 @@ export const useCart = create<CartState>()(
 export function useCartTotals() {
   const items = useCart((s) => s.items);
   const fulfilment = useCart((s) => s.fulfilment);
+  const prices = usePrices();
 
   const lines = items
     .map((item) => {
       const product = getProduct(item.productId);
       if (!product) return null;
-      const lineTotal = Math.round(product.pricePerKg * item.qty);
-      return { item, product, lineTotal };
+      const unitPrice = getUnitPrice(prices, product.priceKey);
+      const lineTotal = calcLineTotal(prices, product, item.qty);
+      return { item, product, unitPrice, lineTotal };
     })
     .filter(Boolean) as Array<{
     item: CartItem;
     product: NonNullable<ReturnType<typeof getProduct>>;
+    unitPrice: number;
     lineTotal: number;
   }>;
 

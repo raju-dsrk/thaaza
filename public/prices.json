@@ -1,0 +1,12 @@
+{
+  "currency": "INR",
+  "goatPerKg": 999,
+  "sheepPerKg": 900,
+  "chickenPerKg": 250,
+  "countryChickenPerKg": 400,
+  "whiteEggsPack6": 30,
+  "whiteEggsTray30": 210,
+  "brownEggsTray": 300,
+  "fishPerKg": 280,
+  "prawnsPerKg": 320
+}

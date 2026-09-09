@@ -40,7 +40,7 @@ Each App Router page is exported as a folder with `index.html` (`trailingSlash: 
 - Next.js App Router + TypeScript + Tailwind CSS v4
 - Static export (`output: 'export'`) + unoptimized images
 - Client cart via Zustand + `localStorage`
-- Demo catalogue in `src/lib/data.ts`
+- Demo catalogue in `src/lib/data.ts`; live prices from `public/prices.json`
 - PWA manifest + deep crimson theme-color
 - Mock checkout (no payment backend) with GST-style bill
 - Noto Sans Telugu for Telugu UI strings
@@ -66,20 +66,54 @@ Each App Router page is exported as a folder with `index.html` (`trailingSlash: 
 3. Update `public/manifest.json` name / short_name / theme_color.
 4. Search-replace remaining “Thaaza” strings in copy pages (`about`, `trust`, footer).
 
-## Edit prices & products
+## Edit prices (no code rebuild)
 
-All demo SKUs live in **`src/lib/data.ts`**:
+**Single source of truth:** `public/prices.json` (served at `/prices.json`).
+
+On Hostinger after deploy, edit **`public_html/prices.json`** in File Manager, save, then **hard-refresh** the site (Ctrl/Cmd+Shift+R). No Next.js rebuild or redeploy needed for price changes.
+
+| Key | What it controls |
+|-----|------------------|
+| `goatPerKg` | All male goat cuts (₹/kg) |
+| `sheepPerKg` | All male sheep / mutton cuts |
+| `chickenPerKg` | Broiler chicken cuts |
+| `countryChickenPerKg` | Country / natu kodi |
+| `whiteEggsPack6` | White eggs 6-pack (₹/pack) |
+| `whiteEggsTray30` | White eggs 30-tray |
+| `brownEggsTray` | Brown eggs 30-tray |
+| `fishPerKg` | Rohu & katla |
+| `prawnsPerKg` | Prawns |
+
+Example — change goat to ₹1,049/kg:
+
+```json
+{
+  "currency": "INR",
+  "goatPerKg": 1049,
+  ...
+}
+```
+
+The app loads `/prices.json` in the browser via `PricesProvider`. If the fetch fails, it falls back to the same defaults in `src/lib/prices.ts`. Prices are **client-rendered** so static HTML may briefly show defaults until JSON loads — that is expected on a hard refresh after an edit.
+
+> JSON does not allow comments. Keep the key names exactly as above.
+
+## Edit products & catalogue
+
+SKU catalogue (names, cuts, units, images — **not** rupee amounts) lives in **`src/lib/data.ts`**:
 
 - `categories` — shop grid
-- `products` — name, cut, `pricePerKg`, unit (`kg` | `tray` | `piece`), min/step qty, images
+- `products` — name, cut, `priceKey` (maps to `prices.json`), unit (`kg` | `tray` | `piece`), min/step qty, images
 - `stores` — three Hyderabad demo shops
 - `DELIVERY_FEE`, `GST_RATE`, `FREE_DELIVERY_ABOVE` — bill math
+
+Changing `priceKey` or adding a product still needs a rebuild. Changing only the numbers in `prices.json` does not.
 
 Unsplash URLs are tasteful food photography (no gore). Swap for your CDN later.
 
 ## Cart & orders
 
-- Cart: Zustand persist key `thaaza-cart-v1`
+- Cart: Zustand persist key `thaaza-cart-v2`
 - Auth mock: `thaaza-auth-v1`
 - Placed orders: `thaaza-order-<id>` + index `thaaza-orders` in `localStorage`
 

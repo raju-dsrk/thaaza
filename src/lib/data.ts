@@ -85,7 +85,7 @@ export const categories: Category[] = [
 ];
 
 export const products: Product[] = [
-  // Goat — all cuts ₹999/kg
+  // Goat — priceKey goatPerKg
   {
     id: "goat-curry",
     slug: "goat-curry-cut",
@@ -94,7 +94,7 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "Bone-in curry pieces from live male goat. Ideal for Hyderabadi dum & home-style curries. Cut fresh after you order.",
-    pricePerKg: 999,
+    priceKey: "goatPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -110,7 +110,7 @@ export const products: Product[] = [
     cut: "Biryani cut",
     description:
       "Larger bone-in chunks sized for dum biryani. Fat trimmed to your preference at the shop.",
-    pricePerKg: 999,
+    priceKey: "goatPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -126,7 +126,7 @@ export const products: Product[] = [
     cut: "Boneless",
     description:
       "Clean boneless goat meat for fry, gravy or kebab. Cut from the same live animal you select.",
-    pricePerKg: 999,
+    priceKey: "goatPerKg",
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
@@ -141,7 +141,7 @@ export const products: Product[] = [
     cut: "Keema",
     description:
       "Freshly minced goat keema. No frozen mince — ground after cutting at the shop.",
-    pricePerKg: 999,
+    priceKey: "goatPerKg",
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
@@ -156,14 +156,14 @@ export const products: Product[] = [
     cut: "Paya",
     description:
       "Goat trotters cleaned and ready for slow-cooked paya. Available while stock lasts each morning.",
-    pricePerKg: 999,
+    priceKey: "goatPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.5,
     image: IMG.goat,
     tags: ["Specialty"],
   },
-  // Sheep — all cuts ₹900/kg
+  // Sheep — priceKey sheepPerKg
   {
     id: "sheep-curry",
     slug: "sheep-curry-cut",
@@ -172,7 +172,7 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "Live-cut male sheep (mutton) curry pieces. Milder flavour than goat, perfect for everyday curries.",
-    pricePerKg: 900,
+    priceKey: "sheepPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -188,7 +188,7 @@ export const products: Product[] = [
     cut: "Biryani cut",
     description:
       "Mutton biryani cut with the right bone-to-meat ratio for dum pots.",
-    pricePerKg: 900,
+    priceKey: "sheepPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -202,7 +202,7 @@ export const products: Product[] = [
     categoryId: "sheep",
     cut: "Boneless",
     description: "Boneless mutton for fry, stew or seekh. Cut to order.",
-    pricePerKg: 900,
+    priceKey: "sheepPerKg",
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
@@ -215,7 +215,7 @@ export const products: Product[] = [
     categoryId: "sheep",
     cut: "Keema",
     description: "Fresh sheep keema, minced at the counter after live cut.",
-    pricePerKg: 900,
+    priceKey: "sheepPerKg",
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
@@ -228,13 +228,13 @@ export const products: Product[] = [
     categoryId: "sheep",
     cut: "Paya",
     description: "Sheep paya cleaned and packed for weekend nihari or soup.",
-    pricePerKg: 900,
+    priceKey: "sheepPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.5,
     image: IMG.sheep,
   },
-  // Broiler chicken — all ₹250/kg
+  // Broiler chicken — priceKey chickenPerKg
   {
     id: "chicken-curry",
     slug: "chicken-curry-cut",
@@ -243,7 +243,7 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "White broiler (40–60 day birds). Curry cut with skin as preferred. Never frozen stock.",
-    pricePerKg: 250,
+    priceKey: "chickenPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -259,7 +259,7 @@ export const products: Product[] = [
     cut: "Boneless",
     description:
       "Boneless chicken breast & thigh for grill, curry or meal prep.",
-    pricePerKg: 250,
+    priceKey: "chickenPerKg",
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
@@ -273,13 +273,13 @@ export const products: Product[] = [
     cut: "Whole",
     description:
       "Whole cleaned broiler. Tell us if you want skin-on or skinless dressing.",
-    pricePerKg: 250,
+    priceKey: "chickenPerKg",
     unit: "kg",
     minQty: 1,
     step: 0.5,
     image: IMG.countryChicken,
   },
-  // Country chicken — all ₹400/kg
+  // Country chicken — priceKey countryChickenPerKg
   {
     id: "country-curry",
     slug: "country-chicken-curry-cut",
@@ -288,7 +288,7 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "Brown / country chicken (natu kodi). Firmer meat, deeper flavour — best slow-cooked.",
-    pricePerKg: 400,
+    priceKey: "countryChickenPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -303,7 +303,7 @@ export const products: Product[] = [
     categoryId: "country-chicken",
     cut: "Whole",
     description: "Whole country bird, cleaned and ready for pot or roast.",
-    pricePerKg: 400,
+    priceKey: "countryChickenPerKg",
     unit: "kg",
     minQty: 1,
     step: 0.5,
@@ -317,7 +317,7 @@ export const products: Product[] = [
     categoryId: "eggs",
     cut: "White pack",
     description: "Farm-fresh white eggs, packed as a 6-piece pack.",
-    pricePerKg: 30,
+    priceKey: "whiteEggsPack6",
     unit: "piece",
     minQty: 1,
     step: 1,
@@ -332,7 +332,7 @@ export const products: Product[] = [
     categoryId: "eggs",
     cut: "White tray",
     description: "Farm-fresh white eggs, packed in a 30-egg tray.",
-    pricePerKg: 210,
+    priceKey: "whiteEggsTray30",
     unit: "tray",
     minQty: 1,
     step: 1,
@@ -346,14 +346,14 @@ export const products: Product[] = [
     categoryId: "eggs",
     cut: "Brown tray",
     description: "Brown eggs from free-range style farms. Richer yolk colour.",
-    pricePerKg: 300,
+    priceKey: "brownEggsTray",
     unit: "tray",
     minQty: 1,
     step: 1,
     image: IMG.brownEggs,
     tags: ["Brown"],
   },
-  // Fish — all ₹280/kg
+  // Fish — priceKey fishPerKg
   {
     id: "fish-rohu-clean",
     slug: "rohu-cleaned",
@@ -362,7 +362,7 @@ export const products: Product[] = [
     cut: "Cleaned",
     description:
       "Freshwater rohu, gutted and cleaned. Ask for curry pieces or fry cuts.",
-    pricePerKg: 280,
+    priceKey: "fishPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -377,7 +377,7 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Cut",
     description: "Rohu cut into curry-ready pieces. Bones left in for flavour.",
-    pricePerKg: 280,
+    priceKey: "fishPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -390,7 +390,7 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Cleaned",
     description: "Katla cleaned and ready. Popular for Andhra-style fish curry.",
-    pricePerKg: 280,
+    priceKey: "fishPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
@@ -403,13 +403,13 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Cut",
     description: "Katla cut to size for fry or gravy.",
-    pricePerKg: 280,
+    priceKey: "fishPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
     image: IMG.fish,
   },
-  // Prawns — all ₹320/kg
+  // Prawns — priceKey prawnsPerKg
   {
     id: "prawns-cleaned",
     slug: "prawns-cleaned",
@@ -418,7 +418,7 @@ export const products: Product[] = [
     cut: "Cleaned",
     description:
       "Deveined cleaned prawns. Ready for fry, gravy or biryani layering.",
-    pricePerKg: 320,
+    priceKey: "prawnsPerKg",
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
@@ -433,7 +433,7 @@ export const products: Product[] = [
     categoryId: "prawns",
     cut: "With shell",
     description: "Whole prawns with shell. Better for spicy fry and gravy stock.",
-    pricePerKg: 320,
+    priceKey: "prawnsPerKg",
     unit: "kg",
     minQty: 0.25,
     step: 0.25,

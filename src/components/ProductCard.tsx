@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatINR, formatQty } from "@/lib/format";
 import { useCart } from "@/store/cart";
+import { useProductUnitPrice } from "@/components/PricesProvider";
 
 const WEIGHT_PRESETS = [
   { label: "1 kg", grams: 1000 },
@@ -20,10 +21,12 @@ function weightPrice(pricePerKg: number, grams: number) {
 
 function WeightPicker({
   product,
+  unitPrice,
   onClose,
   onAdd,
 }: {
   product: Product;
+  unitPrice: number;
   onClose: () => void;
   onAdd: (qtyKg: number) => void;
 }) {
@@ -46,7 +49,7 @@ function WeightPicker({
     };
   }, [onClose]);
 
-  const customPrice = weightPrice(product.pricePerKg, grams);
+  const customPrice = weightPrice(unitPrice, grams);
   const customOk = grams >= 100;
 
   return (
@@ -70,7 +73,7 @@ function WeightPicker({
               >
                 <span className="font-medium text-charcoal">{p.label}</span>
                 <span className="tabular-nums text-burgundy">
-                  {formatINR(weightPrice(product.pricePerKg, p.grams))}
+                  {formatINR(weightPrice(unitPrice, p.grams))}
                 </span>
               </button>
             </li>
@@ -139,6 +142,7 @@ export function ProductCard({ product }: { product: Product }) {
   const qty = item?.qty ?? 0;
   const [pickerOpen, setPickerOpen] = useState(false);
   const isKg = product.unit === "kg";
+  const unitPrice = useProductUnitPrice(product);
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:shadow-md">
@@ -174,7 +178,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="mt-auto flex items-end justify-between gap-2 pt-1">
           <div>
             <p className="text-base font-bold text-burgundy">
-              {formatINR(product.pricePerKg)}
+              {formatINR(unitPrice)}
             </p>
             <p className="text-[11px] text-muted">
               /{" "}
@@ -222,6 +226,7 @@ export function ProductCard({ product }: { product: Product }) {
               {pickerOpen && (
                 <WeightPicker
                   product={product}
+                  unitPrice={unitPrice}
                   onClose={() => setPickerOpen(false)}
                   onAdd={(qtyKg) => addItem(product.id, qtyKg)}
                 />

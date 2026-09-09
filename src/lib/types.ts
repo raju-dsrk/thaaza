@@ -25,7 +25,8 @@ export interface Product {
   categoryId: CategoryId;
   cut: string;
   description: string;
-  pricePerKg: number;
+  /** Key into public/prices.json (resolved at runtime via PricesProvider). */
+  priceKey: string;
   unit: "kg" | "tray" | "piece";
   minQty: number;
   step: number;

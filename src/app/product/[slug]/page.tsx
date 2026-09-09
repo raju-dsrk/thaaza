@@ -8,8 +8,8 @@ import {
   getProductsByCategory,
   products,
 } from "@/lib/data";
-import { formatINR } from "@/lib/format";
 import { ProductCard } from "@/components/ProductCard";
+import { ResolvedPrice } from "@/components/ResolvedPrice";
 import { AddToCartPanel } from "./AddToCartPanel";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -77,15 +77,7 @@ export default async function ProductPage({ params }: Props) {
             {product.name}
           </h1>
           <p className="mt-4 text-3xl font-bold text-burgundy">
-            {formatINR(product.pricePerKg)}
-            <span className="ml-2 text-base font-medium text-muted">
-              /{" "}
-              {product.unit === "tray"
-                ? "tray"
-                : product.unit === "piece"
-                  ? "pack"
-                  : product.unit}
-            </span>
+            <ResolvedPrice product={product} />
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
             {product.description}
