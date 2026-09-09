@@ -44,7 +44,7 @@ export default function HomePage() {
             Always fresh.
           </h1>
           <p
-            className="animate-fade-up text-xl text-gold md:text-2xl"
+            className="animate-fade-up font-telugu text-xl text-gold md:text-2xl"
             style={{ animationDelay: "100ms" }}
           >
             {BRAND.telugu}

@@ -29,6 +29,7 @@
   --color-success: var(--success);
   --font-sans: var(--font-geist-sans);
   --font-display: var(--font-display);
+  --font-telugu: var(--font-telugu);
 }
 
 html {
@@ -76,4 +77,9 @@ body {
 
 .animate-fade-up {
   animation: fade-up 0.5s ease-out both;
+}
+
+
+.font-telugu {
+  font-family: var(--font-telugu), "Noto Sans Telugu", sans-serif;
 }

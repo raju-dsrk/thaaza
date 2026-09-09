@@ -1,0 +1,12 @@
+# Hostinger / Apache helpers for Next static export (trailingSlash folders)
+
+# Force HTTPS when behind Hostinger
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Prefer directory index.html for clean URLs
+DirectoryIndex index.html
+
+# If a file/folder is missing, show 404.html when present
+ErrorDocument 404 /404.html

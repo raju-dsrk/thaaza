@@ -91,7 +91,7 @@ export default function CheckoutPage() {
     }
     clear();
     setTimeout(() => {
-      router.push(`/order/${orderId}`);
+      router.push(`/order?id=${orderId}`);
     }, 600);
   }
 

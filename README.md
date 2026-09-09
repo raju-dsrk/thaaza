@@ -4,6 +4,8 @@
 
 Neighbourhood butcher shops · Visit / Takeaway / Home delivery · Quality first (not frozen dead stock).
 
+> Production domain: **mperseus.com** (brand name in the app remains Thaaza unless you rename it).
+
 ## Quick start
 
 ```bash
@@ -14,20 +16,34 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Production build:
+Static production build (Hostinger / any static host):
 
 ```bash
 npm run build
-npm start
+# Output is in out/ — upload those files, not the out folder itself
 ```
+
+## Deploy on Hostinger (File Manager)
+
+This project uses Next.js `output: 'export'` so `npm run build` writes a fully static site to **`out/`**.
+
+1. On your machine: `npm run build` (or use the release zip `thaaza-hostinger.zip`).
+2. In Hostinger **hPanel → Files → File Manager**, open **`public_html`** for **mperseus.com**.
+3. Upload the **contents** of `out/` into `public_html` (so `index.html` sits directly in `public_html`, not as `public_html/out/index.html`).
+4. Optional: keep `public/.htaccess` (copied into `out/` on build) for HTTPS redirect and clean directory URLs.
+5. Visit https://mperseus.com and hard-refresh if assets look cached.
+
+Each App Router page is exported as a folder with `index.html` (`trailingSlash: true`), so `/shop/`, `/product/…/`, etc. work without a SPA fallback. Order confirmation uses `/order/?id=…` (query string) because dynamic `/order/[id]` paths cannot be pre-rendered for unknown ids.
 
 ## Stack
 
 - Next.js App Router + TypeScript + Tailwind CSS v4
+- Static export (`output: 'export'`) + unoptimized images
 - Client cart via Zustand + `localStorage`
 - Demo catalogue in `src/lib/data.ts`
 - PWA manifest + deep crimson theme-color
 - Mock checkout (no payment backend) with GST-style bill
+- Noto Sans Telugu for Telugu UI strings
 
 ## Key routes
 
@@ -38,7 +54,7 @@ npm start
 | `/product/[slug]` | Product detail + add to cart |
 | `/stores`, `/stores/[id]` | Madhapur, Kukatpally, LB Nagar |
 | `/cart`, `/checkout` | Cart + fulfilment (visit / takeaway / delivery) |
-| `/order/[id]` | Demo order confirmation (browser localStorage) |
+| `/order?id=` | Demo order confirmation (browser localStorage) |
 | `/about` | Problem / solution / model for investors |
 | `/trust` | Hygiene + freshness SOP + FSSAI placeholder |
 | `/account` | Optional mock OTP (does not block browsing) |
@@ -46,7 +62,7 @@ npm start
 ## Rename the brand
 
 1. Update `BRAND` in `src/lib/data.ts` (name, tagline, Telugu line, contacts, theme colour).
-2. Replace the SVG wordmark in `src/components/Logo.tsx`.
+2. Replace the SVG mark in `src/components/Logo.tsx`.
 3. Update `public/manifest.json` name / short_name / theme_color.
 4. Search-replace remaining “Thaaza” strings in copy pages (`about`, `trust`, footer).
 

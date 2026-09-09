@@ -1,26 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import type { Order } from "@/lib/types";
 import { formatINR, formatQty } from "@/lib/format";
 import { getStore } from "@/lib/data";
 
-export default function OrderPage() {
-  const params = useParams();
-  const id = String(params.id || "");
+function OrderContent() {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id") || "";
   const [order, setOrder] = useState<Order | null>(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    if (!id) {
+      setOrder(null);
+      setReady(true);
+      return;
+    }
     try {
       const raw = localStorage.getItem(`thaaza-order-${id}`);
       if (raw) setOrder(JSON.parse(raw) as Order);
+      else setOrder(null);
     } catch {
       setOrder(null);
     }
+    setReady(true);
   }, [id]);
+
+  if (!ready) {
+    return (
+      <div className="mx-auto max-w-lg px-4 py-20 text-center text-muted">
+        Loading order…
+      </div>
+    );
+  }
 
   if (!order) {
     return (
@@ -28,6 +44,7 @@ export default function OrderPage() {
         <h1 className="text-2xl font-semibold">Order not found</h1>
         <p className="mt-2 text-muted">
           Demo orders live in this browser&apos;s localStorage.
+          {!id ? " Add ?id= your order id to the URL." : null}
         </p>
         <Link href="/shop" className="mt-4 inline-block font-semibold text-burgundy">
           Back to shop
@@ -149,5 +166,19 @@ export default function OrderPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function OrderPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="mx-auto max-w-lg px-4 py-20 text-center text-muted">
+          Loading order…
+        </div>
+      }
+    >
+      <OrderContent />
+    </Suspense>
   );
 }
