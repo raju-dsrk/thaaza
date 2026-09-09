@@ -79,7 +79,12 @@ export default async function ProductPage({ params }: Props) {
           <p className="mt-4 text-3xl font-bold text-burgundy">
             {formatINR(product.pricePerKg)}
             <span className="ml-2 text-base font-medium text-muted">
-              / {product.unit === "tray" ? "tray" : product.unit}
+              /{" "}
+              {product.unit === "tray"
+                ? "tray"
+                : product.unit === "piece"
+                  ? "pack"
+                  : product.unit}
             </span>
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">

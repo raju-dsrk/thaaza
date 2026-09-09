@@ -37,17 +37,42 @@ export const useCart = create<CartState>()(
           set({
             items: get().items.map((i) =>
               i.productId === productId
-                ? { ...i, qty: Math.round((i.qty + addQty) * 100) / 100 }
+                ? { ...i, qty: Math.round((i.qty + addQty) * 1000) / 1000 }
                 : i
             ),
           });
         } else {
-          set({ items: [...get().items, { productId, qty: addQty }] });
+          set({
+            items: [
+              ...get().items,
+              { productId, qty: Math.round(addQty * 1000) / 1000 },
+            ],
+          });
         }
       },
       setQty: (productId, qty) => {
         const product = getProduct(productId);
         if (!product) return;
+        if (qty < product.minQty && product.unit !== "kg") {
+          set({ items: get().items.filter((i) => i.productId !== productId) });
+          return;
+        }
+        // For kg, allow going below min via stepper to remove (qty <= 0)
+        if (product.unit === "kg" && qty <= 0) {
+          set({ items: get().items.filter((i) => i.productId !== productId) });
+          return;
+        }
+        if (qty < product.minQty && product.unit === "kg" && qty > 0) {
+          // keep fractional custom weights below listed min
+          set({
+            items: get().items.map((i) =>
+              i.productId === productId
+                ? { ...i, qty: Math.round(qty * 1000) / 1000 }
+                : i
+            ),
+          });
+          return;
+        }
         if (qty < product.minQty) {
           set({ items: get().items.filter((i) => i.productId !== productId) });
           return;
@@ -55,7 +80,7 @@ export const useCart = create<CartState>()(
         set({
           items: get().items.map((i) =>
             i.productId === productId
-              ? { ...i, qty: Math.round(qty * 100) / 100 }
+              ? { ...i, qty: Math.round(qty * 1000) / 1000 }
               : i
           ),
         });
@@ -66,7 +91,7 @@ export const useCart = create<CartState>()(
       setFulfilment: (mode) => set({ fulfilment: mode }),
       setStoreId: (id) => set({ storeId: id }),
     }),
-    { name: "thaaza-cart-v1" }
+    { name: "thaaza-cart-v2" }
   )
 );
 
@@ -78,10 +103,7 @@ export function useCartTotals() {
     .map((item) => {
       const product = getProduct(item.productId);
       if (!product) return null;
-      const lineTotal =
-        product.unit === "tray" || product.unit === "piece"
-          ? product.pricePerKg * item.qty
-          : product.pricePerKg * item.qty;
+      const lineTotal = Math.round(product.pricePerKg * item.qty);
       return { item, product, lineTotal };
     })
     .filter(Boolean) as Array<{

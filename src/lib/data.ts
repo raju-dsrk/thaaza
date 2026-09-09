@@ -10,6 +10,21 @@ export const BRAND = {
   themeColor: "#8B1E3F",
 };
 
+const IMG = {
+  goat: "/images/products/goat-curry.png",
+  sheep: "/images/products/sheep-mutton.png",
+  fish: "/images/products/raw-fish.png",
+  prawns: "/images/products/prawns.png",
+  whiteEggs: "/images/products/white-eggs.png",
+  brownEggs: "/images/products/brown-eggs.png",
+  chicken: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=800&q=80",
+  countryChicken: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=80",
+  countryWhole: "https://images.unsplash.com/photo-1612170153139-6f881ff067e0?w=800&q=80",
+  storeMadhapur: "/images/stores/madhapur.png",
+  storeKukatpally: "/images/stores/kukatpally.png",
+  storeLbNagar: "/images/stores/lbnagar.png",
+};
+
 export const categories: Category[] = [
   {
     id: "goat",
@@ -17,8 +32,7 @@ export const categories: Category[] = [
     nameTe: "మేక",
     slug: "goat",
     description: "Live-cut male goat — curry, biryani, boneless, keema & paya.",
-    image:
-      "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800&q=80",
+    image: IMG.goat,
   },
   {
     id: "sheep",
@@ -26,8 +40,7 @@ export const categories: Category[] = [
     nameTe: "గొర్రె",
     slug: "sheep",
     description: "Fresh mutton from live male sheep, cut to your preference.",
-    image:
-      "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&q=80",
+    image: IMG.sheep,
   },
   {
     id: "chicken",
@@ -35,8 +48,7 @@ export const categories: Category[] = [
     nameTe: "చికెన్",
     slug: "chicken",
     description: "White broiler (40–60 day) — curry cut, boneless & whole.",
-    image:
-      "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=800&q=80",
+    image: IMG.chicken,
   },
   {
     id: "country-chicken",
@@ -44,17 +56,15 @@ export const categories: Category[] = [
     nameTe: "నాటు కోడి",
     slug: "country-chicken",
     description: "Brown / country chicken — richer flavour, slower cook.",
-    image:
-      "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=80",
+    image: IMG.countryChicken,
   },
   {
     id: "eggs",
     name: "Eggs",
     nameTe: "గుడ్లు",
     slug: "eggs",
-    description: "Fresh white & brown egg trays from local farms.",
-    image:
-      "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=800&q=80",
+    description: "Fresh white & brown eggs — packs and trays from local farms.",
+    image: IMG.whiteEggs,
   },
   {
     id: "fish",
@@ -62,8 +72,7 @@ export const categories: Category[] = [
     nameTe: "చేప",
     slug: "fish",
     description: "Rohu & katla — cleaned or cut the way you like.",
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80",
+    image: IMG.fish,
   },
   {
     id: "prawns",
@@ -71,13 +80,12 @@ export const categories: Category[] = [
     nameTe: "రొయ్యలు",
     slug: "prawns",
     description: "Fresh prawns — cleaned or with shell.",
-    image:
-      "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=800&q=80",
+    image: IMG.prawns,
   },
 ];
 
 export const products: Product[] = [
-  // Goat
+  // Goat — all cuts ₹999/kg
   {
     id: "goat-curry",
     slug: "goat-curry-cut",
@@ -86,12 +94,11 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "Bone-in curry pieces from live male goat. Ideal for Hyderabadi dum & home-style curries. Cut fresh after you order.",
-    pricePerKg: 720,
+    pricePerKg: 999,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800&q=80",
+    image: IMG.goat,
     featured: true,
     tags: ["Live-cut", "Bone-in"],
   },
@@ -103,12 +110,11 @@ export const products: Product[] = [
     cut: "Biryani cut",
     description:
       "Larger bone-in chunks sized for dum biryani. Fat trimmed to your preference at the shop.",
-    pricePerKg: 740,
+    pricePerKg: 999,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=800&q=80",
+    image: IMG.goat,
     featured: true,
     tags: ["Live-cut", "Biryani"],
   },
@@ -120,12 +126,11 @@ export const products: Product[] = [
     cut: "Boneless",
     description:
       "Clean boneless goat meat for fry, gravy or kebab. Cut from the same live animal you select.",
-    pricePerKg: 920,
+    pricePerKg: 999,
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=800&q=80",
+    image: IMG.goat,
     tags: ["Boneless"],
   },
   {
@@ -136,12 +141,11 @@ export const products: Product[] = [
     cut: "Keema",
     description:
       "Freshly minced goat keema. No frozen mince — ground after cutting at the shop.",
-    pricePerKg: 780,
+    pricePerKg: 999,
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=800&q=80",
+    image: IMG.goat,
     tags: ["Minced"],
   },
   {
@@ -152,15 +156,14 @@ export const products: Product[] = [
     cut: "Paya",
     description:
       "Goat trotters cleaned and ready for slow-cooked paya. Available while stock lasts each morning.",
-    pricePerKg: 280,
+    pricePerKg: 999,
     unit: "kg",
     minQty: 0.5,
     step: 0.5,
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+    image: IMG.goat,
     tags: ["Specialty"],
   },
-  // Sheep
+  // Sheep — all cuts ₹900/kg
   {
     id: "sheep-curry",
     slug: "sheep-curry-cut",
@@ -169,12 +172,11 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "Live-cut male sheep (mutton) curry pieces. Milder flavour than goat, perfect for everyday curries.",
-    pricePerKg: 780,
+    pricePerKg: 900,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&q=80",
+    image: IMG.sheep,
     featured: true,
     tags: ["Live-cut"],
   },
@@ -186,12 +188,11 @@ export const products: Product[] = [
     cut: "Biryani cut",
     description:
       "Mutton biryani cut with the right bone-to-meat ratio for dum pots.",
-    pricePerKg: 800,
+    pricePerKg: 900,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1642821373181-696a54913e93?w=800&q=80",
+    image: IMG.sheep,
     tags: ["Biryani"],
   },
   {
@@ -201,12 +202,11 @@ export const products: Product[] = [
     categoryId: "sheep",
     cut: "Boneless",
     description: "Boneless mutton for fry, stew or seekh. Cut to order.",
-    pricePerKg: 980,
+    pricePerKg: 900,
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=800&q=80",
+    image: IMG.sheep,
   },
   {
     id: "sheep-keema",
@@ -215,12 +215,11 @@ export const products: Product[] = [
     categoryId: "sheep",
     cut: "Keema",
     description: "Fresh sheep keema, minced at the counter after live cut.",
-    pricePerKg: 840,
+    pricePerKg: 900,
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=800&q=80",
+    image: IMG.sheep,
   },
   {
     id: "sheep-paya",
@@ -229,14 +228,13 @@ export const products: Product[] = [
     categoryId: "sheep",
     cut: "Paya",
     description: "Sheep paya cleaned and packed for weekend nihari or soup.",
-    pricePerKg: 300,
+    pricePerKg: 900,
     unit: "kg",
     minQty: 0.5,
     step: 0.5,
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+    image: IMG.sheep,
   },
-  // Chicken broiler
+  // Broiler chicken — all ₹250/kg
   {
     id: "chicken-curry",
     slug: "chicken-curry-cut",
@@ -245,12 +243,11 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "White broiler (40–60 day birds). Curry cut with skin as preferred. Never frozen stock.",
-    pricePerKg: 220,
+    pricePerKg: 250,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=800&q=80",
+    image: IMG.chicken,
     featured: true,
     tags: ["Daily fresh"],
   },
@@ -262,12 +259,11 @@ export const products: Product[] = [
     cut: "Boneless",
     description:
       "Boneless chicken breast & thigh for grill, curry or meal prep.",
-    pricePerKg: 340,
+    pricePerKg: 250,
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=800&q=80",
+    image: IMG.chicken,
   },
   {
     id: "chicken-whole",
@@ -277,14 +273,13 @@ export const products: Product[] = [
     cut: "Whole",
     description:
       "Whole cleaned broiler. Tell us if you want skin-on or skinless dressing.",
-    pricePerKg: 200,
+    pricePerKg: 250,
     unit: "kg",
     minQty: 1,
     step: 0.5,
-    image:
-      "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=80",
+    image: IMG.countryChicken,
   },
-  // Country chicken
+  // Country chicken — all ₹400/kg
   {
     id: "country-curry",
     slug: "country-chicken-curry-cut",
@@ -293,12 +288,11 @@ export const products: Product[] = [
     cut: "Curry cut",
     description:
       "Brown / country chicken (natu kodi). Firmer meat, deeper flavour — best slow-cooked.",
-    pricePerKg: 420,
+    pricePerKg: 400,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=80",
+    image: IMG.countryChicken,
     featured: true,
     tags: ["Natu kodi"],
   },
@@ -313,40 +307,53 @@ export const products: Product[] = [
     unit: "kg",
     minQty: 1,
     step: 0.5,
-    image:
-      "https://images.unsplash.com/photo-1612170153139-6f881ff067e0?w=800&q=80",
+    image: IMG.countryWhole,
   },
-  // Eggs
+  // Eggs — white and brown clearly split
+  {
+    id: "eggs-white-6",
+    slug: "white-eggs-6",
+    name: "White Eggs (6 pcs)",
+    categoryId: "eggs",
+    cut: "White pack",
+    description: "Farm-fresh white eggs, packed as a 6-piece pack.",
+    pricePerKg: 30,
+    unit: "piece",
+    minQty: 1,
+    step: 1,
+    image: IMG.whiteEggs,
+    featured: true,
+    tags: ["White"],
+  },
   {
     id: "eggs-white",
     slug: "eggs-white-tray",
-    name: "White Eggs — Tray (30)",
+    name: "White Eggs Tray (30)",
     categoryId: "eggs",
     cut: "White tray",
     description: "Farm-fresh white eggs, packed in a 30-egg tray.",
-    pricePerKg: 180,
+    pricePerKg: 210,
     unit: "tray",
     minQty: 1,
     step: 1,
-    image:
-      "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=800&q=80",
-    featured: true,
+    image: IMG.whiteEggs,
+    tags: ["White"],
   },
   {
     id: "eggs-brown",
     slug: "eggs-brown-tray",
-    name: "Brown Eggs — Tray (30)",
+    name: "Brown Eggs Tray (30)",
     categoryId: "eggs",
     cut: "Brown tray",
     description: "Brown eggs from free-range style farms. Richer yolk colour.",
-    pricePerKg: 220,
+    pricePerKg: 300,
     unit: "tray",
     minQty: 1,
     step: 1,
-    image:
-      "https://images.unsplash.com/photo-1498654200943-275ca5356420?w=800&q=80",
+    image: IMG.brownEggs,
+    tags: ["Brown"],
   },
-  // Fish
+  // Fish — all ₹280/kg
   {
     id: "fish-rohu-clean",
     slug: "rohu-cleaned",
@@ -354,13 +361,12 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Cleaned",
     description:
-      "Freshwater rohu, gutted and cleaned. Ask for steak or curry pieces.",
+      "Freshwater rohu, gutted and cleaned. Ask for curry pieces or fry cuts.",
     pricePerKg: 280,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80",
+    image: IMG.fish,
     featured: true,
     tags: ["Freshwater"],
   },
@@ -371,12 +377,11 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Cut",
     description: "Rohu cut into curry-ready pieces. Bones left in for flavour.",
-    pricePerKg: 300,
+    pricePerKg: 280,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1534766555764-ce878a5e3a2b?w=800&q=80",
+    image: IMG.fish,
   },
   {
     id: "fish-katla-clean",
@@ -385,12 +390,11 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Cleaned",
     description: "Katla cleaned and ready. Popular for Andhra-style fish curry.",
-    pricePerKg: 320,
+    pricePerKg: 280,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80",
+    image: IMG.fish,
   },
   {
     id: "fish-katla-cut",
@@ -399,14 +403,13 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Cut",
     description: "Katla cut to size for fry or gravy.",
-    pricePerKg: 340,
+    pricePerKg: 280,
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800&q=80",
+    image: IMG.fish,
   },
-  // Prawns
+  // Prawns — all ₹320/kg
   {
     id: "prawns-cleaned",
     slug: "prawns-cleaned",
@@ -415,12 +418,11 @@ export const products: Product[] = [
     cut: "Cleaned",
     description:
       "Deveined cleaned prawns. Ready for fry, gravy or biryani layering.",
-    pricePerKg: 680,
+    pricePerKg: 320,
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=800&q=80",
+    image: IMG.prawns,
     featured: true,
     tags: ["Cleaned"],
   },
@@ -431,12 +433,11 @@ export const products: Product[] = [
     categoryId: "prawns",
     cut: "With shell",
     description: "Whole prawns with shell. Better for spicy fry and gravy stock.",
-    pricePerKg: 560,
+    pricePerKg: 320,
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image:
-      "https://images.unsplash.com/photo-1625944230946-1e15e7340af1?w=800&q=80",
+    image: IMG.prawns,
   },
 ];
 
@@ -450,8 +451,7 @@ export const stores: Store[] = [
     hours: "6:30 AM – 9:30 PM",
     lat: 17.4484,
     lng: 78.3908,
-    image:
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
+    image: IMG.storeMadhapur,
     specialties: ["Goat & sheep live-cut", "Biryani cuts", "Same-day delivery"],
   },
   {
@@ -463,8 +463,7 @@ export const stores: Store[] = [
     hours: "6:30 AM – 9:30 PM",
     lat: 17.4948,
     lng: 78.3996,
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+    image: IMG.storeKukatpally,
     specialties: ["Country chicken", "Fish & prawns", "Morning stock"],
   },
   {
@@ -476,8 +475,7 @@ export const stores: Store[] = [
     hours: "6:30 AM – 9:00 PM",
     lat: 17.3457,
     lng: 78.5522,
-    image:
-      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&q=80",
+    image: IMG.storeLbNagar,
     specialties: ["Family packs", "Egg trays", "Takeaway rush hours"],
   },
 ];

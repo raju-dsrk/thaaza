@@ -22,8 +22,8 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1600&q=80"
-            alt="Fresh prepared meat dishes"
+            src="/images/products/goat-curry.png"
+            alt="Fresh goat curry cut — live-cut at Thaaza"
             fill
             priority
             className="object-cover"
@@ -166,8 +166,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2">
             <div className="relative min-h-[220px] md:min-h-full">
               <Image
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1000&q=80"
-                alt="Neighbourhood shop exterior"
+                src="/images/stores/madhapur.png"
+                alt="Thaaza Madhapur neighbourhood shop"
                 fill
                 className="object-cover"
                 sizes="50vw"
