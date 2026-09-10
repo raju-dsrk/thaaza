@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="mt-auto border-t border-border bg-charcoal text-cream/90">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-4 md:px-6">
         <div className="md:col-span-2">
-          <Logo href="/" size="md" className="rounded-lg bg-cream/95 p-1" />
+          <Logo href="/" size="xl" variant="badge" />
           <p className="mt-3 max-w-md text-sm leading-relaxed text-cream/65">
             {BRAND.tagline} Trustable meat from live animals cut at neighbourhood
             stores. Quality first — not frozen, not cheap dead stock.

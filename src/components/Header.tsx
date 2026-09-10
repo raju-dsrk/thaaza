@@ -21,8 +21,8 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-cream/95 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 md:h-16 md:px-6">
-        <Logo size="sm" />
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-3 px-4 md:h-24 md:px-6">
+        <Logo size="lg" variant="lockup" />
 
         <nav className="hidden items-center gap-1 md:flex">
           {nav.map((item) => {
