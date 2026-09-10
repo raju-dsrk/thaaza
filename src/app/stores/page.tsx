@@ -5,7 +5,7 @@ import { StoreCard } from "@/components/StoreCard";
 export const metadata: Metadata = {
   title: "Our Stores",
   description:
-    "Thaaza neighbourhood live-cut stores in Madhapur, Kukatpally & LB Nagar.",
+    "Thaaazaa neighbourhood live-cut stores in Madhapur, Kukatpally & LB Nagar.",
 };
 
 export default function StoresPage() {

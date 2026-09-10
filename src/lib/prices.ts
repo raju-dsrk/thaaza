@@ -10,12 +10,12 @@ export type PriceKey =
   | "sheepBonelessPerKg"
   | "sheepKeemaPerKg"
   | "sheepPayaPerKg"
-  | "boilerCurryPerKg"
-  | "boilerBiryaniPerKg"
-  | "boilerBonelessPerKg"
-  | "boilerBreastPerKg"
-  | "boilerLegPerKg"
-  | "boilerWingsPerKg"
+  | "broilerCurryPerKg"
+  | "broilerBiryaniPerKg"
+  | "broilerBonelessPerKg"
+  | "broilerBreastPerKg"
+  | "broilerLegPerKg"
+  | "broilerWingsPerKg"
   | "countryCurryPerKg"
   | "countryBonelessPerKg"
   | "fishPerKg"
@@ -46,12 +46,12 @@ export const DEFAULT_PRICES: Prices = {
   sheepBonelessPerKg: 999,
   sheepKeemaPerKg: 900,
   sheepPayaPerKg: 749,
-  boilerCurryPerKg: 250,
-  boilerBiryaniPerKg: 250,
-  boilerBonelessPerKg: 280,
-  boilerBreastPerKg: 280,
-  boilerLegPerKg: 260,
-  boilerWingsPerKg: 220,
+  broilerCurryPerKg: 250,
+  broilerBiryaniPerKg: 250,
+  broilerBonelessPerKg: 280,
+  broilerBreastPerKg: 280,
+  broilerLegPerKg: 260,
+  broilerWingsPerKg: 220,
   countryCurryPerKg: 400,
   countryBonelessPerKg: 450,
   fishPerKg: 280,

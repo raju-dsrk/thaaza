@@ -38,7 +38,7 @@ export const useAuth = create<AuthState>()(
           phone,
           otpSent: false,
           pendingPhone: null,
-          name: get().name || "Thaaza customer",
+          name: get().name || "Thaaazaa customer",
         });
         return true;
       },

@@ -38,7 +38,7 @@ export default function AccountPage() {
             <input
               value={nameInput}
               onChange={(e) => setNameInput(e.target.value)}
-              onBlur={() => setName(nameInput.trim() || "Thaaza customer")}
+              onBlur={() => setName(nameInput.trim() || "Thaaazaa customer")}
               className="mt-1.5 w-full rounded-xl border border-border bg-cream px-3 py-3 text-sm outline-none focus:border-burgundy"
             />
           </div>

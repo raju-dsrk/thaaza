@@ -5,7 +5,7 @@ import { ShieldCheck, Thermometer, ClipboardCheck, SprayCan } from "lucide-react
 export const metadata: Metadata = {
   title: "Trust & hygiene",
   description:
-    "Thaaza freshness SOP, hygiene practices and FSSAI placeholder for neighbourhood stores.",
+    "Thaaazaa freshness SOP, hygiene practices and FSSAI placeholder for neighbourhood stores.",
 };
 
 const sop = [
@@ -45,7 +45,7 @@ export default function TrustPage() {
       </h1>
       <p className="mt-4 text-muted leading-relaxed">
         Families in Hyderabad don&apos;t buy meat on brand ads alone — they buy on
-        what they can see. Thaaza codifies that trust into a simple operating
+        what they can see. Thaaazaa codifies that trust into a simple operating
         playbook for partner stores.
       </p>
 

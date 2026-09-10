@@ -22,7 +22,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <Image
             src="/images/products/goat-curry.png"
-            alt="Fresh goat curry cut — live-cut at Thaaza"
+            alt="Fresh goat curry cut — live-cut at Thaaazaa"
             fill
             priority
             className="object-cover"
@@ -179,7 +179,7 @@ export default function HomePage() {
               <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
                 It is the person who waits at the counter. The child who asks
                 what is cooking. The quiet hope that today&apos;s meat will taste
-                the way you remember. Thaaza exists so that hope does not have to
+                the way you remember. Thaaazaa exists so that hope does not have to
                 compete with sealed trays and guesswork — only with a live cut,
                 done right, from a store near you.
               </p>

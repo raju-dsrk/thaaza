@@ -5,7 +5,7 @@ import { BRAND } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Our story",
   description:
-    "Why Thaaza exists — the quiet worry behind every Sunday curry, and how we bring back live-cut trust.",
+    "Why Thaaazaa exists — the quiet worry behind every Sunday curry, and how we bring back live-cut trust.",
 };
 
 export default function AboutPage() {
