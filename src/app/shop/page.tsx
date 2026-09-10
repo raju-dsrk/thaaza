@@ -6,7 +6,7 @@ import { CategoryGrid } from "@/components/CategoryGrid";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Browse live-cut goat, sheep, chicken, eggs, fish & prawns in Hyderabad.",
+  description: "Browse live-cut goat, sheep, boiler & country chicken, white & brown eggs, fish & prawns in Hyderabad.",
 };
 
 export default function ShopPage() {

@@ -44,9 +44,6 @@ export default async function CategoryPage({ params }: Props) {
         style={{ fontFamily: "var(--font-display), serif" }}
       >
         {cat.name}
-        {cat.nameTe ? (
-          <span className="font-telugu ml-2 text-xl text-gold md:text-2xl">{cat.nameTe}</span>
-        ) : null}
       </h1>
       <p className="mt-2 max-w-2xl text-muted">{cat.description}</p>
 

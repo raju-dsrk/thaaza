@@ -18,7 +18,6 @@ export function Footer() {
             butcher shops in {BRAND.city}. Quality first — not frozen, not cheap
             dead stock.
           </p>
-          <p className="mt-3 font-telugu text-sm text-gold">{BRAND.telugu}</p>
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-gold">

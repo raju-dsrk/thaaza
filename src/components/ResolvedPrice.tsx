@@ -9,17 +9,13 @@ export function ResolvedPrice({
   className,
   showUnit = true,
 }: {
-  product: Pick<Product, "priceKey" | "unit">;
+  product: Pick<Product, "priceKey" | "unit" | "minQty">;
   className?: string;
   showUnit?: boolean;
 }) {
   const unitPrice = useProductUnitPrice(product);
   const unitLabel =
-    product.unit === "tray"
-      ? "tray"
-      : product.unit === "piece"
-        ? "pack"
-        : product.unit;
+    product.unit === "eggs" ? `${product.minQty} eggs` : product.unit;
 
   return (
     <span className={className}>

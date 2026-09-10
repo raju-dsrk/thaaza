@@ -5,14 +5,14 @@ export type CategoryId =
   | "sheep"
   | "chicken"
   | "country-chicken"
-  | "eggs"
+  | "white-eggs"
+  | "brown-eggs"
   | "fish"
   | "prawns";
 
 export interface Category {
   id: CategoryId;
   name: string;
-  nameTe?: string;
   description: string;
   image: string;
   slug: string;
@@ -27,7 +27,7 @@ export interface Product {
   description: string;
   /** Key into public/prices.json (resolved at runtime via PricesProvider). */
   priceKey: string;
-  unit: "kg" | "tray" | "piece";
+  unit: "kg" | "eggs";
   minQty: number;
   step: number;
   image: string;

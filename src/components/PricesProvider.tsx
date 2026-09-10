@@ -58,7 +58,7 @@ export function useProductUnitPrice(product: Pick<Product, "priceKey">): number 
 }
 
 export function useLineTotal(
-  product: Pick<Product, "priceKey" | "unit">,
+  product: Pick<Product, "priceKey" | "unit" | "categoryId">,
   qty: number
 ): number {
   const prices = usePrices();

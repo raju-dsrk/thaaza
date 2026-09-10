@@ -55,21 +55,27 @@ export const useCart = create<CartState>()(
       setQty: (productId, qty) => {
         const product = getProduct(productId);
         if (!product) return;
-        if (qty < product.minQty && product.unit !== "kg") {
+        // kg / eggs: allow stepper to remove at qty <= 0
+        if ((product.unit === "kg" || product.unit === "eggs") && qty <= 0) {
           set({ items: get().items.filter((i) => i.productId !== productId) });
           return;
         }
-        // For kg, allow going below min via stepper to remove (qty <= 0)
-        if (product.unit === "kg" && qty <= 0) {
-          set({ items: get().items.filter((i) => i.productId !== productId) });
-          return;
-        }
-        if (qty < product.minQty && product.unit === "kg" && qty > 0) {
+        if (product.unit === "kg" && qty > 0 && qty < product.minQty) {
           // keep fractional custom weights below listed min
           set({
             items: get().items.map((i) =>
               i.productId === productId
                 ? { ...i, qty: Math.round(qty * 1000) / 1000 }
+                : i
+            ),
+          });
+          return;
+        }
+        if (product.unit === "eggs" && qty > 0) {
+          set({
+            items: get().items.map((i) =>
+              i.productId === productId
+                ? { ...i, qty: Math.round(qty) }
                 : i
             ),
           });
@@ -93,7 +99,7 @@ export const useCart = create<CartState>()(
       setFulfilment: (mode) => set({ fulfilment: mode }),
       setStoreId: (id) => set({ storeId: id }),
     }),
-    { name: "thaaza-cart-v2" }
+    { name: "thaaza-cart-v3" }
   )
 );
 

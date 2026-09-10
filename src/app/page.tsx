@@ -7,7 +7,6 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { ProductCard } from "@/components/ProductCard";
 import { StoreCard } from "@/components/StoreCard";
 import {
-  BRAND,
   getFeaturedProducts,
   stores,
   testimonials,
@@ -43,12 +42,6 @@ export default function HomePage() {
             <br />
             Always fresh.
           </h1>
-          <p
-            className="animate-fade-up font-telugu text-xl text-gold md:text-2xl"
-            style={{ animationDelay: "100ms" }}
-          >
-            {BRAND.telugu}
-          </p>
           <p
             className="animate-fade-up max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
             style={{ animationDelay: "140ms" }}
@@ -86,7 +79,7 @@ export default function HomePage() {
                 Shop by category
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Goat, sheep, chicken, eggs, fish & prawns
+                Goat, sheep, chicken, eggs, fish & prawns — 8 categories
               </p>
             </div>
             <Link
