@@ -7,7 +7,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import type { Product } from "@/lib/types";
 import { formatINR, formatQty } from "@/lib/format";
-import { getEggProductId } from "@/lib/data";
+import { isCustomEggProduct } from "@/lib/data";
 import { useCart } from "@/store/cart";
 import { usePrices, useProductUnitPrice } from "@/components/PricesProvider";
 import { getUnitPrice, lineTotal as calcLineTotal } from "@/lib/prices";
@@ -17,8 +17,6 @@ const WEIGHT_PRESETS = [
   { label: "500 grams", grams: 500 },
   { label: "250 grams", grams: 250 },
 ] as const;
-
-const EGG_PRESETS = [6, 12, 30] as const;
 
 function weightPrice(pricePerKg: number, grams: number) {
   return Math.round((grams / 1000) * pricePerKg);
@@ -179,122 +177,56 @@ function WeightPicker({
   );
 }
 
-function EggPicker({
+/** Modal for Custom egg products only — live price as count changes. */
+function CustomEggModal({
   product,
   onClose,
   onAdd,
 }: {
   product: Product;
   onClose: () => void;
-  onAdd: (productId: string, eggCount: number) => void;
+  onAdd: (eggCount: number) => void;
 }) {
   const prices = usePrices();
-  const [custom, setCustom] = useState(false);
   const [count, setCount] = useState(6);
-  const categoryId =
-    product.categoryId === "brown-eggs" ? "brown-eggs" : "white-eggs";
   const customOk = count >= 1;
-  const customTotal = calcLineTotal(
-    prices,
-    { ...product, categoryId, unit: "eggs", priceKey: product.priceKey },
-    count
-  );
-
-  function presetPrice(n: 6 | 12 | 30) {
-    const key =
-      categoryId === "white-eggs"
-        ? n === 6
-          ? "whiteEggs6"
-          : n === 12
-            ? "whiteEggs12"
-            : "whiteEggs30"
-        : n === 6
-          ? "brownEggs6"
-          : n === 12
-            ? "brownEggs12"
-            : "brownEggs30";
-    return getUnitPrice(prices, key);
-  }
+  const perEgg = getUnitPrice(prices, product.priceKey);
+  const liveTotal = calcLineTotal(prices, product, Math.max(0, Math.round(count)));
 
   return (
-    <OverlayModal title="Select egg count" onClose={onClose}>
-      {!custom ? (
-        <ul className="space-y-1">
-          {EGG_PRESETS.map((n) => (
-            <li key={n}>
-              <button
-                type="button"
-                className="flex w-full items-center justify-between gap-4 rounded-xl px-4 py-3.5 text-left hover:bg-cream"
-                onClick={() => {
-                  onAdd(getEggProductId(categoryId, n), n);
-                  onClose();
-                }}
-              >
-                <span className="text-base font-medium text-charcoal">
-                  {n} eggs
-                </span>
-                <span className="shrink-0 text-base font-semibold tabular-nums text-burgundy">
-                  {formatINR(presetPrice(n))}
-                </span>
-              </button>
-            </li>
-          ))}
-          <li>
-            <button
-              type="button"
-              className="flex w-full items-center justify-between gap-4 rounded-xl px-4 py-3.5 text-left hover:bg-cream"
-              onClick={() => setCustom(true)}
-            >
-              <span className="text-base font-medium text-charcoal">
-                Custom…
-              </span>
-            </button>
-          </li>
-        </ul>
-      ) : (
-        <div className="space-y-3 p-2">
-          <label className="block text-xs font-medium text-muted">
-            Egg count (min 1)
-          </label>
-          <input
-            type="number"
-            min={1}
-            step={1}
-            value={count}
-            onChange={(e) => setCount(Number(e.target.value) || 0)}
-            className="h-12 w-full rounded-xl border border-border bg-cream px-4 text-base tabular-nums outline-none focus:border-burgundy"
-            autoFocus
-          />
-          <p className="text-sm text-muted">
-            {count} eggs ·{" "}
-            <span className="font-semibold text-burgundy">
-              {formatINR(customTotal)}
-            </span>
-          </p>
-          <div className="flex gap-2 pt-1">
-            <button
-              type="button"
-              className="h-11 flex-1 rounded-xl border border-border text-sm font-medium"
-              onClick={() => setCustom(false)}
-            >
-              Back
-            </button>
-            <button
-              type="button"
-              disabled={!customOk}
-              className="h-11 flex-1 rounded-xl bg-burgundy text-sm font-semibold text-cream disabled:opacity-40"
-              onClick={() => {
-                if (!customOk) return;
-                const n = Math.round(count);
-                onAdd(getEggProductId(categoryId, n), n);
-                onClose();
-              }}
-            >
-              Add
-            </button>
-          </div>
-        </div>
-      )}
+    <OverlayModal title="How many eggs?" onClose={onClose}>
+      <div className="space-y-3 p-2">
+        <label className="block text-xs font-medium text-muted">
+          Egg count (min 1)
+        </label>
+        <input
+          type="number"
+          min={1}
+          step={1}
+          value={count}
+          onChange={(e) => setCount(Number(e.target.value) || 0)}
+          className="h-12 w-full rounded-xl border border-border bg-cream px-4 text-base tabular-nums outline-none focus:border-burgundy"
+          autoFocus
+        />
+        <p className="text-sm text-muted">
+          {Math.max(0, Math.round(count))} eggs · {formatINR(perEgg)}/egg ·{" "}
+          <span className="font-semibold text-burgundy">
+            {formatINR(liveTotal)}
+          </span>
+        </p>
+        <button
+          type="button"
+          disabled={!customOk}
+          className="h-11 w-full rounded-xl bg-burgundy text-sm font-semibold text-cream disabled:opacity-40"
+          onClick={() => {
+            if (!customOk) return;
+            onAdd(Math.round(count));
+            onClose();
+          }}
+        >
+          Add {Math.max(0, Math.round(count))} eggs · {formatINR(liveTotal)}
+        </button>
+      </div>
     </OverlayModal>
   );
 }
@@ -307,7 +239,29 @@ export function ProductCard({ product }: { product: Product }) {
   const [pickerOpen, setPickerOpen] = useState(false);
   const isKg = product.unit === "kg";
   const isEggs = product.unit === "eggs";
+  const isCustomEggs = isEggs && isCustomEggProduct(product);
+  const isEggPack = isEggs && !isCustomEggs;
   const unitPrice = useProductUnitPrice(product);
+
+  function handleAddClick() {
+    if (isKg || isCustomEggs) {
+      setPickerOpen(true);
+      return;
+    }
+    if (isEggPack) {
+      addItem(product.id, product.minQty);
+    }
+  }
+
+  function handlePlusClick() {
+    if (isKg || isCustomEggs) {
+      setPickerOpen(true);
+      return;
+    }
+    if (isEggPack) {
+      addItem(product.id, product.minQty);
+    }
+  }
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition hover:shadow-md">
@@ -346,7 +300,12 @@ export function ProductCard({ product }: { product: Product }) {
               {formatINR(unitPrice)}
             </p>
             <p className="text-[11px] text-muted">
-              / {isEggs ? `${product.minQty} eggs` : product.unit}
+              /{" "}
+              {isCustomEggs
+                ? "egg"
+                : isEggs
+                  ? `${product.minQty} eggs`
+                  : product.unit}
             </p>
           </div>
 
@@ -355,7 +314,7 @@ export function ProductCard({ product }: { product: Product }) {
               {qty === 0 ? (
                 <button
                   type="button"
-                  onClick={() => setPickerOpen(true)}
+                  onClick={handleAddClick}
                   className="inline-flex h-10 min-w-[72px] items-center justify-center rounded-xl bg-burgundy px-3 text-sm font-semibold text-cream transition hover:bg-burgundy-dark active:scale-95"
                 >
                   Add
@@ -368,7 +327,11 @@ export function ProductCard({ product }: { product: Product }) {
                     onClick={() =>
                       setQty(
                         product.id,
-                        isEggs ? qty - 1 : qty - product.step
+                        isEggs
+                          ? isCustomEggs
+                            ? qty - 1
+                            : qty - product.minQty
+                          : qty - product.step
                       )
                     }
                     className="flex h-10 w-9 items-center justify-center text-burgundy"
@@ -381,7 +344,7 @@ export function ProductCard({ product }: { product: Product }) {
                   <button
                     type="button"
                     aria-label="Add more"
-                    onClick={() => setPickerOpen(true)}
+                    onClick={handlePlusClick}
                     className="flex h-10 w-9 items-center justify-center text-burgundy"
                   >
                     <Plus className="h-4 w-4" />
@@ -395,11 +358,11 @@ export function ProductCard({ product }: { product: Product }) {
                   onAdd={(qtyKg) => addItem(product.id, qtyKg)}
                 />
               )}
-              {pickerOpen && isEggs && (
-                <EggPicker
+              {pickerOpen && isCustomEggs && (
+                <CustomEggModal
                   product={product}
                   onClose={() => setPickerOpen(false)}
-                  onAdd={(productId, eggCount) => addItem(productId, eggCount)}
+                  onAdd={(eggCount) => addItem(product.id, eggCount)}
                 />
               )}
             </div>

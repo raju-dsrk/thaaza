@@ -16,7 +16,9 @@ const IMG = {
   paya: "/images/products/paya.png",
   sheep: "/images/products/sheep-mutton.png",
   sheepBoneless: "/images/products/sheep-boneless.png",
-  chickenCurry: "/images/products/chicken-curry.png",
+  boilerHens: "/images/products/boiler-hens.png",
+  chickenCurrySmall: "/images/products/chicken-curry-small.png",
+  chickenBiryaniMedium: "/images/products/chicken-biryani-medium.png",
   chickenBoneless: "/images/products/chicken-boneless.png",
   chickenBreast: "/images/products/chicken-breast.png",
   chickenLegs: "/images/products/chicken-legs.png",
@@ -24,7 +26,9 @@ const IMG = {
   countryChicken:
     "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=80",
   fish: "/images/products/raw-fish.png",
-  prawns: "/images/products/prawns.png",
+  prawnsLarge: "/images/products/prawns-large.png",
+  prawnsMedium: "/images/products/prawns-medium.png",
+  prawnsSmall: "/images/products/prawns-small.png",
   whiteEggs: "/images/products/white-eggs.png",
   brownEggs: "/images/products/brown-eggs.png",
   storeMadhapur: "/images/stores/madhapur.png",
@@ -35,16 +39,16 @@ const IMG = {
 export const categories: Category[] = [
   {
     id: "goat",
-    name: "Goat (Meka pothu)",
+    name: "Goat",
     slug: "goat",
-    description: "Live-cut goat — curry, biryani, boneless, keema & paya bones.",
+    description: "Live-cut goat — curry, boneless, keema & paya bones.",
     image: IMG.goatCurry,
   },
   {
     id: "sheep",
-    name: "Sheep (Pottel)",
+    name: "Sheep",
     slug: "sheep",
-    description: "Fresh mutton from live sheep, cut to your preference.",
+    description: "Fresh mutton from live sheep — curry, boneless, keema & paya bones.",
     image: IMG.sheep,
   },
   {
@@ -52,7 +56,7 @@ export const categories: Category[] = [
     name: "Boiler Chicken",
     slug: "chicken",
     description: "Boiler chicken — curry, biryani, boneless, breasts, legs & wings.",
-    image: IMG.chickenCurry,
+    image: IMG.boilerHens,
   },
   {
     id: "country-chicken",
@@ -87,7 +91,7 @@ export const categories: Category[] = [
     name: "Prawns",
     slug: "prawns",
     description: "Fresh prawns — large, medium and small.",
-    image: IMG.prawns,
+    image: IMG.prawnsLarge,
   },
 ];
 
@@ -108,22 +112,6 @@ export const products: Product[] = [
     image: IMG.goatCurry,
     featured: true,
     tags: ["Live-cut", "Bone-in"],
-  },
-  {
-    id: "goat-biryani",
-    slug: "goat-biryani-cut",
-    name: "Goat — Biryani Cut",
-    categoryId: "goat",
-    cut: "Biryani cut",
-    description:
-      "Larger bone-in chunks sized for dum biryani. Fat trimmed to your preference at the shop.",
-    priceKey: "goatBiryaniPerKg",
-    unit: "kg",
-    minQty: 0.5,
-    step: 0.25,
-    image: IMG.goatCurry,
-    featured: true,
-    tags: ["Live-cut", "Biryani"],
   },
   {
     id: "goat-boneless",
@@ -147,7 +135,7 @@ export const products: Product[] = [
     categoryId: "goat",
     cut: "Keema",
     description:
-      "Freshly minced goat keema. No frozen mince — ground after cutting at the shop.",
+      "Freshly minced goat keema. Freshly minced at the shop after live cut — never pre-packed mince.",
     priceKey: "goatKeemaPerKg",
     unit: "kg",
     minQty: 0.25,
@@ -186,21 +174,6 @@ export const products: Product[] = [
     image: IMG.sheep,
     featured: true,
     tags: ["Live-cut"],
-  },
-  {
-    id: "sheep-biryani",
-    slug: "sheep-biryani-cut",
-    name: "Sheep — Biryani Cut",
-    categoryId: "sheep",
-    cut: "Biryani cut",
-    description:
-      "Mutton biryani cut with the right bone-to-meat ratio for dum pots.",
-    priceKey: "sheepBiryaniPerKg",
-    unit: "kg",
-    minQty: 0.5,
-    step: 0.25,
-    image: IMG.sheep,
-    tags: ["Biryani"],
   },
   {
     id: "sheep-boneless",
@@ -249,12 +222,12 @@ export const products: Product[] = [
     categoryId: "chicken",
     cut: "Curry cut",
     description:
-      "Boiler chicken curry cut with skin as preferred. Never frozen stock.",
+      "Boiler chicken curry cut with skin as preferred. Daily fresh stock.",
     priceKey: "boilerCurryPerKg",
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image: IMG.chickenCurry,
+    image: IMG.chickenCurrySmall,
     featured: true,
     tags: ["Daily fresh"],
   },
@@ -269,7 +242,7 @@ export const products: Product[] = [
     unit: "kg",
     minQty: 0.5,
     step: 0.25,
-    image: IMG.chickenCurry,
+    image: IMG.chickenBiryaniMedium,
     tags: ["Biryani"],
   },
   {
@@ -361,7 +334,7 @@ export const products: Product[] = [
     name: "White Eggs (6)",
     categoryId: "white-eggs",
     cut: "Pack of 6",
-    description: "Farm-fresh white eggs — pack of 6, or choose 12 / 30 / custom count.",
+    description: "Farm-fresh white eggs — pack of 6.",
     priceKey: "whiteEggs6",
     unit: "eggs",
     minQty: 6,
@@ -398,6 +371,20 @@ export const products: Product[] = [
     image: IMG.whiteEggs,
     tags: ["White"],
   },
+  {
+    id: "white-eggs-custom",
+    slug: "white-eggs-custom",
+    name: "White Eggs — Custom",
+    categoryId: "white-eggs",
+    cut: "Custom",
+    description: "Choose any egg count. Price updates at the per-egg rate.",
+    priceKey: "whiteEggsPerEgg",
+    unit: "eggs",
+    minQty: 1,
+    step: 1,
+    image: IMG.whiteEggs,
+    tags: ["White", "Custom"],
+  },
   // Brown eggs
   {
     id: "brown-eggs-6",
@@ -405,7 +392,7 @@ export const products: Product[] = [
     name: "Brown Eggs (6)",
     categoryId: "brown-eggs",
     cut: "Pack of 6",
-    description: "Brown eggs — pack of 6, or choose 12 / 30 / custom count.",
+    description: "Brown eggs — pack of 6.",
     priceKey: "brownEggs6",
     unit: "eggs",
     minQty: 6,
@@ -442,6 +429,20 @@ export const products: Product[] = [
     image: IMG.brownEggs,
     tags: ["Brown"],
   },
+  {
+    id: "brown-eggs-custom",
+    slug: "brown-eggs-custom",
+    name: "Brown Eggs — Custom",
+    categoryId: "brown-eggs",
+    cut: "Custom",
+    description: "Choose any egg count. Price updates at the per-egg rate.",
+    priceKey: "brownEggsPerEgg",
+    unit: "eggs",
+    minQty: 1,
+    step: 1,
+    image: IMG.brownEggs,
+    tags: ["Brown", "Custom"],
+  },
   // Fish — one product
   {
     id: "fish-freshwater",
@@ -471,7 +472,7 @@ export const products: Product[] = [
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image: IMG.prawns,
+    image: IMG.prawnsLarge,
     featured: true,
     tags: ["Large"],
   },
@@ -486,7 +487,7 @@ export const products: Product[] = [
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image: IMG.prawns,
+    image: IMG.prawnsMedium,
     tags: ["Medium"],
   },
   {
@@ -500,7 +501,7 @@ export const products: Product[] = [
     unit: "kg",
     minQty: 0.25,
     step: 0.25,
-    image: IMG.prawns,
+    image: IMG.prawnsSmall,
     tags: ["Small"],
   },
 ];
@@ -549,7 +550,7 @@ export const testimonials: Testimonial[] = [
     id: "t1",
     name: "Sravanthi R.",
     area: "Madhapur",
-    text: "Finally a shop where I can see the animal before they cut. Biryani cut for Sunday dum is consistent — no surprises like frozen packets.",
+    text: "Finally a shop where I can see the animal before they cut. Biryani cut for Sunday dum is consistent — no surprises like pre-packed dead stock.",
     rating: 5,
   },
   {
@@ -563,7 +564,7 @@ export const testimonials: Testimonial[] = [
     id: "t3",
     name: "Lakshmi Devi",
     area: "Kukatpally",
-    text: "Country chicken curry cut was fresh — not the soft freezer chicken. My mother-in-law noticed the difference immediately.",
+    text: "Country chicken curry cut was fresh — not soft packed chicken. My mother-in-law noticed the difference immediately.",
     rating: 5,
   },
   {
@@ -599,13 +600,18 @@ export function getFeaturedProducts() {
   return products.filter((p) => p.featured);
 }
 
-/** Resolve egg pack product id for a category + count (6/12/30), else base 6-pack. */
+/** Resolve egg pack product id for a category + count (6/12/30), else custom. */
 export function getEggProductId(
   categoryId: "white-eggs" | "brown-eggs",
   count: number
 ): string {
   const prefix = categoryId === "white-eggs" ? "white-eggs" : "brown-eggs";
+  if (count === 6) return `${prefix}-6`;
   if (count === 12) return `${prefix}-12`;
   if (count === 30) return `${prefix}-30`;
-  return `${prefix}-6`;
+  return `${prefix}-custom`;
+}
+
+export function isCustomEggProduct(product: { id: string; cut?: string }): boolean {
+  return product.id.endsWith("-custom") || product.cut === "Custom";
 }

@@ -7,6 +7,7 @@ import {
   getProductsByCategory,
 } from "@/lib/data";
 import { ProductCard } from "@/components/ProductCard";
+import { CategoryChips } from "@/components/CategoryChips";
 
 type Props = { params: Promise<{ category: string }> };
 
@@ -47,26 +48,8 @@ export default async function CategoryPage({ params }: Props) {
       </h1>
       <p className="mt-2 max-w-2xl text-muted">{cat.description}</p>
 
-      <div className="mt-4 flex gap-2 overflow-x-auto no-scrollbar pb-2">
-        <Link
-          href="/shop"
-          className="shrink-0 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium"
-        >
-          All
-        </Link>
-        {categories.map((c) => (
-          <Link
-            key={c.id}
-            href={`/shop/${c.slug}`}
-            className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium ${
-              c.id === cat.id
-                ? "bg-burgundy text-cream"
-                : "border border-border bg-white"
-            }`}
-          >
-            {c.name}
-          </Link>
-        ))}
+      <div className="mt-4">
+        <CategoryChips activeSlug={cat.slug} />
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { categories, products } from "@/lib/data";
+import { products } from "@/lib/data";
 import { ProductCard } from "@/components/ProductCard";
 import { CategoryGrid } from "@/components/CategoryGrid";
+import { CategoryChips } from "@/components/CategoryChips";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Browse live-cut goat, sheep, boiler & country chicken, white & brown eggs, fish & prawns in Hyderabad.",
+  description:
+    "Browse live-cut goat, sheep, boiler & country chicken, white & brown eggs, fish & prawns in Hyderabad.",
 };
 
 export default function ShopPage() {
@@ -27,22 +28,8 @@ export default function ShopPage() {
         <CategoryGrid compact />
       </div>
 
-      <div className="mt-4 flex gap-2 overflow-x-auto no-scrollbar pb-2">
-        <Link
-          href="/shop"
-          className="shrink-0 rounded-full bg-burgundy px-4 py-2 text-sm font-semibold text-cream"
-        >
-          All
-        </Link>
-        {categories.map((c) => (
-          <Link
-            key={c.id}
-            href={`/shop/${c.slug}`}
-            className="shrink-0 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-charcoal hover:border-burgundy/40"
-          >
-            {c.name}
-          </Link>
-        ))}
+      <div className="mt-4">
+        <CategoryChips />
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">

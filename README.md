@@ -43,7 +43,6 @@ Each App Router page is exported as a folder with `index.html` (`trailingSlash: 
 - Demo catalogue in `src/lib/data.ts`; live prices from `public/prices.json`
 - PWA manifest + deep crimson theme-color
 - Mock checkout (no payment backend) with GST-style bill
-- Noto Sans Telugu for Telugu UI strings
 
 ## Key routes
 
@@ -61,7 +60,7 @@ Each App Router page is exported as a folder with `index.html` (`trailingSlash: 
 
 ## Rename the brand
 
-1. Update `BRAND` in `src/lib/data.ts` (name, tagline, Telugu line, contacts, theme colour).
+1. Update `BRAND` in `src/lib/data.ts` (name, tagline, contacts, theme colour).
 2. Replace the SVG mark in `src/components/Logo.tsx`.
 3. Update `public/manifest.json` name / short_name / theme_color.
 4. Search-replace remaining “Thaaza” strings in copy pages (`about`, `trust`, footer).

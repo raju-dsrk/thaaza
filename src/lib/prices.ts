@@ -3,12 +3,10 @@ import type { CategoryId, Product } from "./types";
 /** Keys that map products → editable amounts in public/prices.json */
 export type PriceKey =
   | "goatCurryPerKg"
-  | "goatBiryaniPerKg"
   | "goatBonelessPerKg"
   | "goatKeemaPerKg"
   | "goatPayaPerKg"
   | "sheepCurryPerKg"
-  | "sheepBiryaniPerKg"
   | "sheepBonelessPerKg"
   | "sheepKeemaPerKg"
   | "sheepPayaPerKg"
@@ -27,9 +25,11 @@ export type PriceKey =
   | "whiteEggs6"
   | "whiteEggs12"
   | "whiteEggs30"
+  | "whiteEggsPerEgg"
   | "brownEggs6"
   | "brownEggs12"
-  | "brownEggs30";
+  | "brownEggs30"
+  | "brownEggsPerEgg";
 
 export type Prices = {
   currency: string;
@@ -39,12 +39,10 @@ export type Prices = {
 export const DEFAULT_PRICES: Prices = {
   currency: "INR",
   goatCurryPerKg: 999,
-  goatBiryaniPerKg: 999,
   goatBonelessPerKg: 1099,
   goatKeemaPerKg: 999,
   goatPayaPerKg: 799,
   sheepCurryPerKg: 900,
-  sheepBiryaniPerKg: 900,
   sheepBonelessPerKg: 999,
   sheepKeemaPerKg: 900,
   sheepPayaPerKg: 749,
@@ -63,9 +61,11 @@ export const DEFAULT_PRICES: Prices = {
   whiteEggs6: 30,
   whiteEggs12: 58,
   whiteEggs30: 140,
+  whiteEggsPerEgg: 5,
   brownEggs6: 42,
   brownEggs12: 80,
   brownEggs30: 190,
+  brownEggsPerEgg: 7,
 };
 
 export function getUnitPrice(prices: Prices, key: string): number {
@@ -78,13 +78,20 @@ function eggPackPrice(prices: Prices, categoryId: CategoryId, qty: number): numb
   if (qty === 6) return getUnitPrice(prices, white ? "whiteEggs6" : "brownEggs6");
   if (qty === 12) return getUnitPrice(prices, white ? "whiteEggs12" : "brownEggs12");
   if (qty === 30) return getUnitPrice(prices, white ? "whiteEggs30" : "brownEggs30");
-  const perEgg = getUnitPrice(prices, white ? "whiteEggs6" : "brownEggs6") / 6;
+  const dedicated = getUnitPrice(
+    prices,
+    white ? "whiteEggsPerEgg" : "brownEggsPerEgg"
+  );
+  const perEgg =
+    dedicated > 0
+      ? dedicated
+      : getUnitPrice(prices, white ? "whiteEggs6" : "brownEggs6") / 6;
   return Math.round(perEgg * qty);
 }
 
 /**
  * Line total for cart / checkout.
- * kg: round(perKg * qtyKg); eggs: pack prices for 6/12/30 else per-egg from pack6.
+ * kg: round(perKg * qtyKg); eggs: pack prices for 6/12/30 else per-egg rate.
  */
 export function lineTotal(
   prices: Prices,

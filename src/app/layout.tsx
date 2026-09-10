@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { DM_Serif_Display } from "next/font/google";
-import { Noto_Sans_Telugu } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { BottomNav } from "@/components/BottomNav";
@@ -24,12 +23,6 @@ const display = DM_Serif_Display({
   variable: "--font-display",
   weight: "400",
   subsets: ["latin"],
-});
-
-const notoTelugu = Noto_Sans_Telugu({
-  variable: "--font-telugu",
-  subsets: ["telugu"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -75,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} ${notoTelugu.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-charcoal">
         <Providers>
