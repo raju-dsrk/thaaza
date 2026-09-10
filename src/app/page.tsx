@@ -21,14 +21,15 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0">
           <Image
-            src="/images/products/goat-curry.png"
-            alt="Fresh goat curry cut — live-cut at Thaaazaa"
+            src="/images/hero/hero-family-table.png"
+            alt="Fresh chicken, eggs, fish and prawns — home table trust"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/75 to-burgundy/50" />
+          {/* Slightly stronger overlay so hero matches cream/burgundy site tone */}
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/92 via-charcoal/78 to-burgundy/55" />
         </div>
         <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-16 md:px-6 md:py-24 lg:py-28">
           <p className="animate-fade-up text-sm font-medium uppercase tracking-[0.2em] text-gold">
