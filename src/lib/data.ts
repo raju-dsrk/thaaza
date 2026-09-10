@@ -10,6 +10,8 @@ export const BRAND = {
 };
 
 const IMG = {
+  maleGoat: "/images/products/male-goat.png",
+  maleSheep: "/images/products/male-sheep.png",
   goatCurry: "/images/products/goat-curry.png",
   goatBoneless: "/images/products/goat-boneless.png",
   keema: "/images/products/keema.png",
@@ -39,17 +41,17 @@ const IMG = {
 export const categories: Category[] = [
   {
     id: "goat",
-    name: "Goat",
+    name: "Goat (Meka Pothu)",
     slug: "goat",
-    description: "Live-cut goat — curry, boneless, keema & paya bones.",
-    image: IMG.goatCurry,
+    description: "Male goat, live-cut — curry, boneless, keema & paya bones.",
+    image: IMG.maleGoat,
   },
   {
     id: "sheep",
-    name: "Sheep",
+    name: "Sheep (Pottelu)",
     slug: "sheep",
-    description: "Fresh mutton from live sheep — curry, boneless, keema & paya bones.",
-    image: IMG.sheep,
+    description: "Male sheep, live-cut — curry, boneless, keema & paya bones.",
+    image: IMG.maleSheep,
   },
   {
     id: "chicken",

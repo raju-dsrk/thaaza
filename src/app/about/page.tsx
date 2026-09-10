@@ -96,8 +96,8 @@ export default function AboutPage() {
           {BRAND.tagline}
         </h2>
         <p className="mt-2 text-cream/80">
-          This site is a product demo for the brand experience. Reach us at{" "}
-          {BRAND.email} for partnership conversations.
+          Built for families who want butcher-shop trust with modern ordering.
+          Partnerships: {BRAND.email}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
@@ -110,7 +110,7 @@ export default function AboutPage() {
             href="/stores"
             className="rounded-xl border border-cream/40 px-4 py-2.5 text-sm font-semibold"
           >
-            Demo stores
+            Our shops
           </Link>
         </div>
       </section>

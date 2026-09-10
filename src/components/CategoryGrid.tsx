@@ -57,7 +57,7 @@ export function CategoryGrid({ compact = false }: { compact?: boolean }) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/75 via-charcoal/20 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-2.5">
-              <p className="text-sm font-semibold text-cream">{cat.name}</p>
+              <p className="text-[11px] font-semibold leading-snug text-cream sm:text-sm">{cat.name}</p>
             </div>
           </div>
         </Link>

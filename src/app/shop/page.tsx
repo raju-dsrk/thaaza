@@ -7,7 +7,7 @@ import { CategoryChips } from "@/components/CategoryChips";
 export const metadata: Metadata = {
   title: "Shop",
   description:
-    "Browse live-cut goat, sheep, boiler & country chicken, white & brown eggs, fish & prawns in Hyderabad.",
+    "Browse live-cut goat (Meka Pothu), sheep (Pottelu), chicken, eggs, fish & prawns — cut fresh after you order.",
 };
 
 export default function ShopPage() {
@@ -20,8 +20,8 @@ export default function ShopPage() {
         Shop fresh cuts
       </h1>
       <p className="mt-2 max-w-2xl text-muted">
-        Demo catalogue with Hyderabad INR prices. Choose a category or scroll the
-        full list. Fulfilment: visit shop, takeaway or home delivery.
+        Fresh cuts from live animals — see what you buy, then we cut to order.
+        Visit the shop, takeaway, or get it delivered.
       </p>
 
       <div className="mt-6">

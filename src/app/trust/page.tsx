@@ -75,12 +75,10 @@ export default function TrustPage() {
         <h2 className="font-semibold text-burgundy">FSSAI (placeholder)</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
           Partner shops operate under applicable FSSAI licences. Licence numbers
-          will be displayed per store once live operations begin. This demo uses
-          placeholder compliance copy only — replace with real registration
-          details before production launch.
+          will be shown on each shop page as we go live.
         </p>
         <p className="mt-3 font-mono text-xs text-muted">
-          Demo FSSAI: XXXXXXXXXXXXXX · Hyderabad
+          FSSAI: licence details coming soon
         </p>
       </section>
 

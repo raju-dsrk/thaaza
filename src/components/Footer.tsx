@@ -50,8 +50,8 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-cream/45">
-        © {new Date().getFullYear()} Thaaza. Demo catalogue — prices in INR for
-        Hyderabad. Not a live payment site.
+        © {new Date().getFullYear()} Thaaza. Fresh meat across India — prices in ₹.
+        Online payments coming soon.
       </div>
     </footer>
   );

@@ -114,7 +114,7 @@ export default function HomePage() {
                 Featured today
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Demo prices in INR · Hyderabad
+                Live-cut favourites · prices in ₹
               </p>
             </div>
             <Link

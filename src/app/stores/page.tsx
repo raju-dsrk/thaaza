@@ -17,8 +17,8 @@ export default function StoresPage() {
         Our shops
       </h1>
       <p className="mt-2 max-w-2xl text-muted">
-        Three demo neighbourhood hubs across Hyderabad. Walk in to see the animal,
-        or order for takeaway / delivery from the same counter.
+        Neighbourhood live-cut hubs. Walk in to see the animal, or order for
+        takeaway / delivery from the same counter.
       </p>
       <div className="mt-8 grid gap-5 md:grid-cols-3">
         {stores.map((s) => (
