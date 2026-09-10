@@ -4,7 +4,7 @@ const steps = [
   {
     icon: Eye,
     title: "See the animal",
-    text: "At the neighbourhood shop — or confirm live stock for delivery slots.",
+    text: "At the neighbourhood store — or confirm live stock for delivery slots.",
   },
   {
     icon: Scissors,
@@ -19,7 +19,7 @@ const steps = [
   {
     icon: Package,
     title: "Pack & fulfil",
-    text: "Visit shop, takeaway, or home delivery across Hyderabad hubs.",
+    text: "Visit store, takeaway, or home delivery across Hyderabad hubs.",
   },
 ];
 

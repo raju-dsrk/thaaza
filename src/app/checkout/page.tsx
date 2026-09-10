@@ -28,7 +28,7 @@ export default function CheckoutPage() {
   const [error, setError] = useState("");
 
   const modes: { id: FulfilmentMode; label: string; hint: string }[] = [
-    { id: "visit", label: "Visit shop", hint: "See animal · wait for cut" },
+    { id: "visit", label: "Visit store", hint: "See animal · wait for cut" },
     { id: "takeaway", label: "Takeaway", hint: "Ready for pickup" },
     { id: "delivery", label: "Home delivery", hint: "Hyderabad hubs" },
   ];
@@ -131,7 +131,7 @@ export default function CheckoutPage() {
 
             {(fulfilment === "visit" || fulfilment === "takeaway") && (
               <div className="mt-4">
-                <label className="text-sm font-medium">Preferred shop</label>
+                <label className="text-sm font-medium">Preferred store</label>
                 <select
                   value={storeId || ""}
                   onChange={(e) => setStoreId(e.target.value)}

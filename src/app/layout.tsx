@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: `%s · ${BRAND.name}`,
   },
   description:
-    "Trustable meat from live animals cut at neighbourhood butcher shops in Hyderabad. Visit shop, takeaway or home delivery. Not frozen. Not cheap dead stock.",
+    "Trustable meat from live animals cut at neighbourhood stores. Visit store, takeaway or home delivery. Not frozen. Not cheap dead stock.",
   applicationName: BRAND.name,
   manifest: "/manifest.json",
   appleWebApp: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${BRAND.name} — ${BRAND.tagline}`,
     description:
-      "Live-cut meat from neighbourhood shops in Hyderabad. Quality first.",
+      "Live-cut meat from neighbourhood stores. Quality first.",
     locale: "en_IN",
     type: "website",
   },

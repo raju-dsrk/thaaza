@@ -95,7 +95,7 @@ export default async function ProductPage({ params }: Props) {
             </div>
           )}
           <ul className="mt-5 space-y-2 text-sm text-muted">
-            <li>✓ Live-cut at partner butcher shops</li>
+            <li>✓ Live-cut at partner stores</li>
             <li>✓ Not frozen cold-chain stock</li>
             <li>✓ Visit · Takeaway · Home delivery</li>
           </ul>

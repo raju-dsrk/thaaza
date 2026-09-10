@@ -62,7 +62,7 @@ export default function AccountPage() {
             View cart →
           </Link>
           <Link href="/stores" className="font-medium text-burgundy">
-            Find shops →
+            Find stores →
           </Link>
         </div>
       </div>

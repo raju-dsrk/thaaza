@@ -137,7 +137,7 @@ export const products: Product[] = [
     categoryId: "goat",
     cut: "Keema",
     description:
-      "Freshly minced goat keema. Freshly minced at the shop after live cut — never pre-packed mince.",
+      "Freshly minced goat keema. Freshly minced at the store after live cut — never pre-packed mince.",
     priceKey: "goatKeemaPerKg",
     unit: "kg",
     minQty: 0.25,
@@ -453,7 +453,7 @@ export const products: Product[] = [
     categoryId: "fish",
     cut: "Whole/Clean",
     description:
-      "Freshwater fish, whole or cleaned. Ask for curry pieces or fry cuts at the shop.",
+      "Freshwater fish, whole or cleaned. Ask for curry pieces or fry cuts at the store.",
     priceKey: "fishPerKg",
     unit: "kg",
     minQty: 0.5,
@@ -573,7 +573,7 @@ export const testimonials: Testimonial[] = [
     id: "t4",
     name: "Pradeep Kumar",
     area: "LB Nagar",
-    text: "Visit shop mode is useful. I pick the bird, they cut while I wait. Bill has GST breakup — clear and professional.",
+    text: "Visit store mode is useful. I pick the bird, they cut while I wait. Bill has GST breakup — clear and professional.",
     rating: 4,
   },
 ];

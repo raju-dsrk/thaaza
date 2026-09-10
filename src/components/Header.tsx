@@ -11,7 +11,7 @@ const nav = [
   { href: "/shop", label: "Shop" },
   { href: "/stores", label: "Stores" },
   { href: "/trust", label: "Trust" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "Our story" },
 ];
 
 export function Header() {

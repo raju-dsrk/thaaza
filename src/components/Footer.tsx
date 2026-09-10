@@ -15,8 +15,7 @@ export function Footer() {
           </Link>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-cream/65">
             {BRAND.tagline} Trustable meat from live animals cut at neighbourhood
-            butcher shops in {BRAND.city}. Quality first — not frozen, not cheap
-            dead stock.
+            stores. Quality first — not frozen, not cheap dead stock.
           </p>
         </div>
         <div>
@@ -28,7 +27,7 @@ export function Footer() {
               ["/shop", "Shop"],
               ["/stores", "Stores"],
               ["/trust", "Trust & hygiene"],
-              ["/about", "About / investors"],
+              ["/about", "Our story"],
             ].map(([href, label]) => (
               <li key={href}>
                 <Link href={href} className="hover:text-cream">

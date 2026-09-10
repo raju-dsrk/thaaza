@@ -3,89 +3,62 @@ import Link from "next/link";
 import { BRAND } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Our story",
   description:
-    "Thaaza investor story — problem, solution and neighbourhood butcher model in Hyderabad.",
+    "Why Thaaza exists — the quiet worry behind every Sunday curry, and how we bring back live-cut trust.",
 };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-14">
       <p className="text-xs font-semibold uppercase tracking-wider text-gold">
-        About · Investors
+        Our story
       </p>
       <h1
         className="mt-2 text-3xl text-charcoal md:text-4xl"
         style={{ fontFamily: "var(--font-display), serif" }}
       >
-        Why Thaaza exists
+        Meat you can look in the eye
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">
-        Hyderabad still trusts meat the old way — see the animal, choose the cut,
-        watch it being dressed. National apps pushed convenience, but often with
-        frozen or long cold-chain stock. {BRAND.name} sits in the middle:{" "}
-        <strong className="text-charcoal">neighbourhood live-cut</strong> with
-        app-grade fulfilment.
+        Most of us grew up knowing where dinner came from. Someone at the
+        counter chose the bird. Someone cut it while you waited. You could smell
+        that it was fresh before it reached the pan.
+      </p>
+      <p className="mt-4 text-lg leading-relaxed text-muted">
+        Somewhere along the way, that comfort got replaced by sealed trays and
+        promises on a label. Convenient — yes. Easy to trust — not always. Too
+        many families have opened a pack that looked fine online and felt wrong
+        at home.
+      </p>
+      <p className="mt-4 text-lg leading-relaxed text-charcoal">
+        {BRAND.name} is our way back. Live animals. Cuts made after you order.
+        Neighbourhood stores you can walk into. The same care your parents
+        insisted on — with ordering that fits how we live now.
       </p>
 
       <section className="mt-10 space-y-4">
-        <h2 className="text-xl font-semibold">The problem</h2>
-        <ul className="list-disc space-y-2 pl-5 text-muted">
-          <li>
-            Urban buyers want hygiene and convenience, but distrust opaque
-            &quot;fresh&quot; packs that arrived frozen.
-          </li>
-          <li>
-            Traditional butcher shops have trust and skill — but weak discovery,
-            inconsistent packing, and no delivery stack.
-          </li>
-          <li>
-            Cheap dead stock races to the bottom on price and quality. Families
-            cooking biryani or Sunday curry notice immediately.
-          </li>
-        </ul>
-      </section>
-
-      <section className="mt-10 space-y-4">
-        <h2 className="text-xl font-semibold">Our solution</h2>
-        <p className="text-muted leading-relaxed">
-          Partner with neighbourhood butcher shops. Digitise catalogue, cut
-          preferences, GST-style billing and fulfilment (visit / takeaway /
-          delivery) — while the core promise stays{" "}
-          <em className="text-charcoal">live-cut after order</em>.
+        <h2 className="text-xl font-semibold">What we refuse to forget</h2>
+        <p className="leading-relaxed text-muted">
+          Freshness is not a marketing word. It is the quiet relief when your
+          mother-in-law nods at the colour of the meat. It is the biryani that
+          tastes like Sunday used to. It is knowing the animal was still alive
+          when you decided what to cook tonight.
         </p>
-        <div className="grid gap-3 sm:grid-cols-3">
-          {[
-            ["Quality first", "Not the cheapest frozen SKU."],
-            ["Local trust", "Shops people already know."],
-            ["Modern ops", "App cart, SOPs, hub delivery."],
-          ].map(([t, d]) => (
-            <div
-              key={t}
-              className="rounded-2xl border border-border bg-white p-4 shadow-sm"
-            >
-              <p className="font-semibold text-burgundy">{t}</p>
-              <p className="mt-1 text-sm text-muted">{d}</p>
-            </div>
-          ))}
-        </div>
+        <p className="leading-relaxed text-muted">
+          We are not here to be the cheapest tray in the city. We are here so
+          you do not have to wonder.
+        </p>
       </section>
 
       <section className="mt-10 space-y-4">
-        <h2 className="text-xl font-semibold">Model</h2>
-        <ol className="list-decimal space-y-2 pl-5 text-muted">
-          <li>Asset-light partnerships with existing butcher shops.</li>
-          <li>Shared brand, hygiene SOP, weighing & packing standards.</li>
-          <li>
-            Three fulfilment modes so we don&apos;t force every customer into
-            delivery.
-          </li>
-          <li>
-            Category breadth: goat, sheep, broiler, country chicken, eggs, fish,
-            prawns — one neighbourhood stop.
-          </li>
-          <li>Start dense in Hyderabad, then replicate city by city.</li>
-        </ol>
+        <h2 className="text-xl font-semibold">How we work</h2>
+        <ul className="list-disc space-y-2 pl-5 text-muted">
+          <li>See the animal — or trust that we cut only after your order.</li>
+          <li>Goat, sheep, chicken, eggs, fish and prawns from one counter.</li>
+          <li>Visit the store, takeaway, or delivery — your choice.</li>
+          <li>Clean packing, honest weighing, clear bills.</li>
+        </ul>
       </section>
 
       <section className="mt-10 rounded-2xl bg-burgundy p-6 text-cream">
@@ -96,8 +69,8 @@ export default function AboutPage() {
           {BRAND.tagline}
         </h2>
         <p className="mt-2 text-cream/80">
-          Built for families who want butcher-shop trust with modern ordering.
-          Partnerships: {BRAND.email}
+          If this feels like the meat culture you grew up with, we would love to
+          hear from you — {BRAND.email}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
@@ -110,7 +83,7 @@ export default function AboutPage() {
             href="/stores"
             className="rounded-xl border border-cream/40 px-4 py-2.5 text-sm font-semibold"
           >
-            Our shops
+            Our Stores
           </Link>
         </div>
       </section>

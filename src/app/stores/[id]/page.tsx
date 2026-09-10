@@ -84,7 +84,7 @@ export default async function StoreDetailPage({ params }: Props) {
             </div>
           </div>
           <div className="flex flex-col gap-3 rounded-2xl bg-cream p-5">
-            <h2 className="font-semibold text-charcoal">Fulfilment from this shop</h2>
+            <h2 className="font-semibold text-charcoal">Fulfilment from this store</h2>
             <p className="text-sm text-muted">
               Visit to see the animal and wait for the cut. Or order takeaway /
               delivery — we still cut fresh at this counter.

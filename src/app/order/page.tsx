@@ -56,7 +56,7 @@ function OrderContent() {
   const store = order.storeId ? getStore(order.storeId) : null;
   const fulfilmentLabel =
     order.fulfilment === "visit"
-      ? "Visit shop"
+      ? "Visit store"
       : order.fulfilment === "takeaway"
         ? "Takeaway"
         : "Home delivery";

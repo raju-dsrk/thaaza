@@ -46,7 +46,7 @@ export default function HomePage() {
             className="animate-fade-up max-w-xl text-base leading-relaxed text-cream/80 md:text-lg"
             style={{ animationDelay: "140ms" }}
           >
-            Trustable meat from live animals cut at neighbourhood shops. Quality
+            Trustable meat from live animals cut at neighbourhood stores. Quality
             first — not frozen, not cheap dead stock. Visit, takeaway or home
             delivery.
           </p>
@@ -65,7 +65,7 @@ export default function HomePage() {
               href="/stores"
               className="inline-flex min-h-12 items-center rounded-2xl border border-cream/30 bg-cream/10 px-6 text-base font-semibold text-cream backdrop-blur hover:bg-cream/20"
             >
-              Find a shop
+              Find a store
             </Link>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function HomePage() {
           <div className="mb-5 flex items-end justify-between">
             <div>
               <h2 className="text-2xl font-semibold text-charcoal md:text-3xl">
-                Our shops
+                Our Stores
               </h2>
               <p className="mt-1 text-sm text-muted">
                 Madhapur · Kukatpally · LB Nagar
@@ -145,7 +145,7 @@ export default function HomePage() {
               href="/stores"
               className="text-sm font-semibold text-burgundy hover:underline"
             >
-              All stores
+              View all
             </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
@@ -159,8 +159,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2">
             <div className="relative min-h-[220px] md:min-h-full">
               <Image
-                src="/images/stores/madhapur.png"
-                alt="Thaaza Madhapur neighbourhood shop"
+                src="/images/story/our-story.png"
+                alt="Preparing fresh meat at home with care"
                 fill
                 className="object-cover"
                 sizes="50vw"
@@ -168,25 +168,26 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col justify-center p-6 md:p-10">
               <p className="text-xs font-semibold uppercase tracking-wider text-gold">
-                For investors & partners
+                Our story
               </p>
               <h2
                 className="mt-2 text-2xl text-charcoal md:text-3xl"
                 style={{ fontFamily: "var(--font-display), serif" }}
               >
-                Neighbourhood trust, city-scale ops
+                Because dinner is never just dinner
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
-                Thaaza digitises the live-cut butcher experience Hyderabad already
-                trusts — without pushing customers into frozen cold-chain meat.
-                Asset-light shop partnerships, clear SOPs, and fulfilment that
-                still starts with a live animal and a sharp knife.
+                It is the person who waits at the counter. The child who asks
+                what is cooking. The quiet hope that today&apos;s meat will taste
+                the way you remember. Thaaza exists so that hope does not have to
+                compete with sealed trays and guesswork — only with a live cut,
+                done right, from a store near you.
               </p>
               <Link
                 href="/about"
                 className="mt-5 inline-flex w-fit items-center gap-2 rounded-xl bg-burgundy px-5 py-2.5 text-sm font-semibold text-cream hover:bg-burgundy-dark"
               >
-                Read the story
+                Read our story
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -228,7 +229,7 @@ export default function HomePage() {
           </h2>
           <p className="mx-auto mt-2 max-w-lg text-cream/80">
             Pick your cut now. We&apos;ll live-cut, pack, and get it to your door —
-            or meet you at the shop.
+            or meet you at the store.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
