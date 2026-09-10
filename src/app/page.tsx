@@ -25,11 +25,12 @@ export default function HomePage() {
             alt="Fresh chicken, eggs, fish and prawns — home table trust"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-[center_35%]"
             sizes="100vw"
           />
-          {/* Slightly stronger overlay so hero matches cream/burgundy site tone */}
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/92 via-charcoal/78 to-burgundy/55" />
+          {/* Lighter overlay so family stays visible behind copy */}
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/70 via-charcoal/45 to-burgundy/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-charcoal/20" />
         </div>
         <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-16 md:px-6 md:py-24 lg:py-28">
           <p className="animate-fade-up text-sm font-medium uppercase tracking-[0.2em] text-gold">
@@ -48,8 +49,8 @@ export default function HomePage() {
             style={{ animationDelay: "140ms" }}
           >
             Trustable meat from live animals cut at neighbourhood stores. Quality
-            first — not frozen, not cheap dead stock. Visit, takeaway or home
-            delivery.
+            first — not frozen, not cheap dead stock. Visit store or opt
+            takeaway or choose home delivery.
           </p>
           <div
             className="animate-fade-up flex flex-wrap gap-3 pt-2"
