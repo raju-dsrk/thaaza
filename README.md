@@ -1,10 +1,10 @@
-# Thaaza
+# Thaaazaa
 
-**Live-cut. Always fresh.** — a demo Next.js storefront for a Hyderabad live-cut meat startup.
+**Fresh & delicious meat.** — a demo Next.js storefront for a Hyderabad live-cut meat startup.
 
 Neighbourhood butcher shops · Visit / Takeaway / Home delivery · Quality first (not frozen dead stock).
 
-> Production domain: **mperseus.com** (brand name in the app remains Thaaza unless you rename it).
+> Production domain: **mperseus.com** (brand: **Thaaazaa**).
 
 ## Quick start
 
@@ -63,7 +63,7 @@ Each App Router page is exported as a folder with `index.html` (`trailingSlash: 
 1. Update `BRAND` in `src/lib/data.ts` (name, tagline, contacts, theme colour).
 2. Replace the SVG mark in `src/components/Logo.tsx`.
 3. Update `public/manifest.json` name / short_name / theme_color.
-4. Search-replace remaining “Thaaza” strings in copy pages (`about`, `trust`, footer).
+4. Search-replace remaining “Thaaazaa” strings in copy pages (`about`, `trust`, footer).
 
 ## Edit prices (no code rebuild)
 

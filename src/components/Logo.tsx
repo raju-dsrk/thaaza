@@ -5,10 +5,7 @@ import Link from "next/link";
 
 type LogoSize = "sm" | "md" | "lg" | "xl";
 
-/**
- * branded lockup: large ram medal + crisp THAAAZAA wordmark (readable on mobile).
- * variant "badge" = full stacked logo artwork for footer / hero.
- */
+/** Logo / name always routes to home (/). */
 export function Logo({
   className = "",
   href = "/",
@@ -16,7 +13,7 @@ export function Logo({
   variant = "lockup",
 }: {
   className?: string;
-  href?: string | null;
+  href?: string;
   size?: LogoSize;
   variant?: "lockup" | "badge";
 }) {
@@ -28,6 +25,7 @@ export function Logo({
     xl: "text-3xl",
   }[size];
   const badgeH = { sm: 72, md: 96, lg: 120, xl: 148 }[size];
+  const homeHref = href || "/";
 
   const content =
     variant === "badge" ? (
@@ -37,7 +35,7 @@ export function Logo({
       >
         <Image
           src="/images/brand/logo.png"
-          alt="Thaaazaa"
+          alt="Thaaazaa — Fresh & delicious meat"
           width={badgeH}
           height={badgeH}
           className="h-full w-full object-contain p-1.5"
@@ -66,25 +64,20 @@ export function Logo({
           >
             THAAAZAA
           </span>
-          {size !== "sm" && (
-            <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-muted">
-              Live-cut · Fresh
-            </span>
-          )}
+          <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.12em] text-muted sm:text-[10px] sm:tracking-[0.14em]">
+            Fresh & delicious meat
+          </span>
         </span>
       </span>
     );
 
-  if (href) {
-    return (
-      <Link
-        href={href}
-        className="inline-flex shrink-0 items-center"
-        aria-label="Thaaazaa home"
-      >
-        {content}
-      </Link>
-    );
-  }
-  return content;
+  return (
+    <Link
+      href={homeHref}
+      className="inline-flex shrink-0 items-center"
+      aria-label="Thaaazaa home"
+    >
+      {content}
+    </Link>
+  );
 }

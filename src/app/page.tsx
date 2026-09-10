@@ -49,8 +49,8 @@ export default function HomePage() {
             style={{ animationDelay: "140ms" }}
           >
             Trustable meat from live animals cut at neighbourhood stores. Quality
-            first — not frozen, not cheap dead stock. Visit store or opt
-            takeaway or choose home delivery.
+            first — not frozen, not cheap dead stock. Visit the store, opt for
+            takeaway, or choose home delivery.
           </p>
           <div
             className="animate-fade-up flex flex-wrap gap-3 pt-2"

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: `%s · ${BRAND.name}`,
   },
   description:
-    "Trustable meat from live animals cut at neighbourhood stores. Visit store, takeaway or home delivery. Not frozen. Not cheap dead stock.",
+    "Trustable meat from live animals cut at neighbourhood stores. Visit the store, opt for takeaway, or choose home delivery. Not frozen. Not cheap dead stock.",
   applicationName: BRAND.name,
   manifest: "/manifest.json",
   appleWebApp: {

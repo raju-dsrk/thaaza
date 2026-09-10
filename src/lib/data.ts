@@ -2,7 +2,7 @@ import type { Category, Product, Store, Testimonial } from "./types";
 
 export const BRAND = {
   name: "Thaaazaa",
-  tagline: "Live-cut. Always fresh.",
+  tagline: "Fresh & delicious meat.",
   city: "Hyderabad",
   phone: "+91 90000 00000",
   email: "hello@thaaazaa.in",
@@ -18,7 +18,7 @@ const IMG = {
   paya: "/images/products/paya.png",
   sheep: "/images/products/sheep-mutton.png",
   sheepBoneless: "/images/products/sheep-boneless.png",
-  boilerHens: "/images/products/broiler-hens.png",
+  broilerHens: "/images/products/broiler-hens.png",
   chickenCurrySmall: "/images/products/chicken-curry-small.png",
   chickenBiryaniMedium: "/images/products/chicken-biryani-medium.png",
   chickenBoneless: "/images/products/chicken-boneless.png",
@@ -58,7 +58,7 @@ export const categories: Category[] = [
     name: "Broiler Chicken",
     slug: "chicken",
     description: "Broiler chicken — curry, biryani, boneless, breasts, legs & wings.",
-    image: IMG.boilerHens,
+    image: IMG.broilerHens,
   },
   {
     id: "country-chicken",
