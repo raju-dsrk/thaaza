@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { products } from "@/lib/data";
 import { ProductCard } from "@/components/ProductCard";
-import { CategoryGrid } from "@/components/CategoryGrid";
 import { CategoryChips } from "@/components/CategoryChips";
 
 export const metadata: Metadata = {
@@ -25,10 +24,6 @@ export default function ShopPage() {
       </p>
 
       <div className="mt-6">
-        <CategoryGrid compact />
-      </div>
-
-      <div className="mt-4">
         <CategoryChips />
       </div>
 
